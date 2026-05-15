@@ -1,9 +1,9 @@
-DAILY BREAD PROJECT - Choose Impact Screen Update
+DAILY BREAD PROJECT - Checkout Screen Update
 
-Replaces the image-based Choose screen with a fully coded version.
+Replaces the image-based Checkout screen with a fully coded version.
 
 FILES IN THIS ZIP:
-  app/choose/page.tsx    - coded choose screen (replaces existing)
-  app/globals.css        - adds choose-screen styles (replaces existing)
+  app/checkout/page.tsx  - coded checkout screen (replaces existing)
+  app/globals.css        - adds checkout-screen styles (replaces existing)
 
 Instructions in chat with Claude.
