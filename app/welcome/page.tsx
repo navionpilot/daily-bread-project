@@ -1,15 +1,14 @@
 "use client";
 
 import { useRouter } from "next/navigation";
-import Link from "next/link";
 
 /**
  * Welcome to the Daily Bread Family — confirmation screen
  * shown after a partner completes signup.
  *
- * This is the first FULLY CODED screen (not a mockup image).
- * Real HTML/CSS, sharp at any resolution, uses the real
- * Mafutseni logo from public/assets.
+ * Updated: now cream background (matches other screens) and broader
+ * "supporting" wording (was "feeding" — reflects the full mission of
+ * food, shelter, supplies, and care).
  */
 
 export default function WelcomePage() {
@@ -20,7 +19,6 @@ export default function WelcomePage() {
       <div className="codedPhone">
         <div className="welcomeScreen">
 
-          {/* Fake iPhone status bar (only visible on desktop preview) */}
           <div className="welcomeStatusBar">
             <span>9:41</span>
             <div className="welcomeStatusIcons">
@@ -61,7 +59,7 @@ export default function WelcomePage() {
             </div>
 
             <p className="welcomeBody">
-              You are now feeding
+              You are now supporting
               <br />
               children at the Mafutseni
               <br />
@@ -86,10 +84,6 @@ export default function WelcomePage() {
           </div>
         </div>
       </div>
-
-      <Link href="/" className="appBackHome">
-        ← Back to overview
-      </Link>
     </main>
   );
 }

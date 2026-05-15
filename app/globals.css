@@ -1,5 +1,5 @@
 /* ================================================================
-   Daily Bread Project — Global Styles  (v11 — coded dashboard + checkout + choose + start + welcome)
+   Daily Bread Project — Global Styles  (v12 — welcome flipped to cream + FBC badge on home)
    ================================================================ */
 
 * { box-sizing: border-box; }
@@ -229,14 +229,14 @@ button.appHotspot, .appHotspot {
 }
 
 /* ================================================================
-   WELCOME SCREEN  (already in production)
+   WELCOME SCREEN  (v12 — flipped to cream to match other screens)
    ================================================================ */
 
 .welcomeScreen {
   width: 100%;
   height: 100%;
-  background: #050505;
-  color: #f4ead8;
+  background: #f4ead8;
+  color: #14110c;
   border-radius: 31px;
   display: flex;
   flex-direction: column;
@@ -254,7 +254,7 @@ button.appHotspot, .appHotspot {
   font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
   font-size: 11px;
   font-weight: 600;
-  color: #f4ead8;
+  color: #14110c;
   flex-shrink: 0;
   padding-top: 1%;
 }
@@ -297,7 +297,7 @@ button.appHotspot, .appHotspot {
   font-size: clamp(15px, 6cqw, 20px);
   font-weight: 500;
   letter-spacing: 0.16em;
-  color: #f4ead8;
+  color: #14110c;
   margin-bottom: 4%;
 }
 .welcomeBig {
@@ -306,7 +306,7 @@ button.appHotspot, .appHotspot {
   font-size: clamp(30px, 13cqw, 42px);
   font-weight: 700;
   letter-spacing: 0.02em;
-  color: #f4ead8;
+  color: #14110c;
   line-height: 1.05;
 }
 
@@ -316,7 +316,7 @@ button.appHotspot, .appHotspot {
   font-size: clamp(15px, 5.5cqw, 19px);
   font-weight: 400;
   line-height: 1.5;
-  color: rgba(244, 234, 216, 0.78);
+  color: #5f574b;
 }
 
 .welcomeCtaBtn {
@@ -482,6 +482,15 @@ button.appHotspot, .appHotspot {
   letter-spacing: 0.02em;
 }
 .startSponsorBrand { font-weight: 600; color: #14110c; }
+
+/* Fellowship Baptist Church badge at the bottom of the homepage */
+.startFbcBadge {
+  width: 35%;
+  height: auto;
+  object-fit: contain;
+  margin: 3% auto 0;
+  display: block;
+}
 
 /* ================================================================
    CHOOSE IMPACT SCREEN  (new! — fully coded)

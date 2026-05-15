@@ -4,11 +4,8 @@ import { useRouter } from "next/navigation";
 
 /**
  * Homepage — the first screen any visitor sees at dailybreadproject.org.
- *
- * This used to be a "marketing poster" preview with 8 clickable phones.
- * As of this update, it IS the real entry point to the app:
- * Mafutseni logo, title, tagline, and a JOIN THE MISSION button that
- * starts the donor flow.
+ * Start screen with Mafutseni logo, title, tagline, CTA button, sponsor
+ * info, and Fellowship Baptist Church badge at the bottom.
  */
 
 export default function HomePage() {
@@ -19,7 +16,6 @@ export default function HomePage() {
       <div className="codedPhone">
         <div className="startScreen">
 
-          {/* Fake iPhone status bar (hidden on real mobile via CSS) */}
           <div className="startStatusBar">
             <span>9:41</span>
             <div className="startStatusIcons">
@@ -82,6 +78,11 @@ export default function HomePage() {
                 </span>{" "}
                 · Meridian, MS
               </span>
+              <img
+                className="startFbcBadge"
+                src="/assets/fellowship_baptist_badge.png"
+                alt="Fellowship Baptist Church"
+              />
             </div>
 
           </div>
