@@ -1,24 +1,19 @@
-DAILY BREAD PROJECT - Unified Branding Update
+DAILY BREAD PROJECT - Share Page Update
 
-What changed:
-1. HOMEPAGE
-   - Mafutseni logo bumped from 48% to 58% (BIGGER)
-   - Tagline: "HELP FEED TODAY'S TABLE" → "CARE FOR TODAY'S CHILDREN"
-   - Footer: "Sponsored by" → "Supported by"
+What's new:
+- NEW PAGE: /share - shows mission statement, Mafutseni logo, QR code, and Share button
+- 4-TAB BOTTOM NAV: Home / Impact / Share / Manage (was 3-tab)
+- All 3 existing nav pages updated to show the new 4-tab nav
 
-2. DASHBOARD
-   - Title: "TODAY'S TABLE" → "TODAY'S CARE"
+FILES IN THIS ZIP (6 files):
+  app/share/page.tsx                  - NEW Share screen
+  app/dashboard/page.tsx              - updated nav to 4 tabs
+  app/impact/page.tsx                 - updated nav to 4 tabs
+  app/manage/page.tsx                 - updated nav to 4 tabs
+  app/globals.css                     - share styles + 4-tab grid
+  public/assets/qr_code_dbp.png       - NEW QR code image
 
-3. WELCOME
-   - Button: "VIEW TODAY'S TABLE" → "VIEW TODAY'S CARE"
-
-The brand now reads as one unified story:
-"Care for Today's Children" → "View Today's Care" → "Today's Care"
-
-FILES IN THIS ZIP (4 files):
-  app/page.tsx              - updated homepage
-  app/welcome/page.tsx      - updated welcome screen
-  app/dashboard/page.tsx    - updated dashboard
-  app/globals.css           - bigger homepage logo CSS
+The QR code links to dailybreadproject.org. The "Share Via..." button
+opens the device's native share menu on mobile or copies the link on desktop.
 
 Instructions in chat with Claude.
