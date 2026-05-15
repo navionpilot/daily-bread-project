@@ -1,5 +1,5 @@
 /* ================================================================
-   Daily Bread Project — Global Styles
+   Daily Bread Project — Global Styles  (v3)
    ================================================================ */
 
 * {
@@ -103,7 +103,8 @@ button {
 }
 
 /* ================================================================
-   INDIVIDUAL APP SCREENS  — phone-shaped layout for each screen
+   INDIVIDUAL APP SCREENS  — show each mockup image with
+   precisely-aligned clickable hotspots over the buttons.
    ================================================================ */
 
 .appStage {
@@ -114,45 +115,46 @@ button {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 24px;
+  padding: 24px 16px;
   background:
     radial-gradient(ellipse 60% 40% at 50% 50%, rgba(216, 154, 34, 0.06), transparent 70%),
     #050505;
-  gap: 16px;
+  gap: 14px;
 }
 
-/* The phone-shaped container. The screen image lives inside.
-   Aspect ratio matches the mockup phone (~191:430). */
+/* The wrapper that holds the screen image AND its hotspots.
+   `inline-block` makes it shrink to fit the image exactly,
+   so hotspot percentages always line up with the actual image. */
 .appPhone {
   position: relative;
-  width: 100%;
-  max-width: 380px;
-  aspect-ratio: 191 / 430;
-  background: #111;
-  border-radius: 38px;
-  overflow: hidden;
-  box-shadow:
-    inset 0 0 0 2px rgba(255, 255, 255, 0.05),
-    0 24px 60px rgba(0, 0, 0, 0.6);
+  display: inline-block;
+  line-height: 0;
+  max-width: 100%;
 }
 
-/* The actual screen mockup image, fills the phone */
+/* The screen mockup image itself.
+   Displayed smaller on desktop (max 540px tall) to keep it sharp,
+   since the source images are only 191x430px. */
 .appPhoneImage {
   display: block;
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
+  width: auto;
+  height: auto;
+  max-height: min(85vh, 540px);
+  max-width: 90vw;
   user-select: none;
   -webkit-user-drag: none;
   pointer-events: none;
+  /* hint to browsers to scale the image a bit more crisply */
+  image-rendering: -webkit-optimize-contrast;
 }
 
-/* Invisible clickable areas over the buttons in each screen image */
+/* Invisible clickable buttons positioned over each tap target
+   in the screen image. Coordinates are % of the image itself. */
 .appHotspot {
   position: absolute;
   background: transparent;
   border: 2px solid transparent;
-  border-radius: 14px;
+  border-radius: 12px;
   cursor: pointer;
   padding: 0;
   transition: 0.15s ease;
@@ -162,22 +164,22 @@ button {
 .appHotspot:hover,
 .appHotspot:focus,
 .appHotspot:active {
-  border-color: rgba(216, 154, 34, 0.7);
+  border-color: rgba(216, 154, 34, 0.75);
   background: rgba(216, 154, 34, 0.18);
-  box-shadow: 0 0 18px rgba(216, 154, 34, 0.4);
+  box-shadow: 0 0 14px rgba(216, 154, 34, 0.4);
 }
 
-/* Subtle pulse on the main action button so users notice it */
+/* Subtle pulse on the main call-to-action so users see it's tappable */
 @keyframes appPulse {
   0%, 100% { box-shadow: 0 0 0 2px rgba(216, 154, 34, 0); }
-  50%      { box-shadow: 0 0 0 2px rgba(216, 154, 34, 0.5); }
+  50%      { box-shadow: 0 0 0 2px rgba(216, 154, 34, 0.55); }
 }
 
 .appHotspotPulse {
   animation: appPulse 2.2s ease-in-out infinite;
 }
 
-/* "Back to overview" link */
+/* Floating "Back to overview" link below the phone */
 .appBackHome {
   color: rgba(244, 234, 216, 0.6);
   text-decoration: none;
@@ -196,24 +198,17 @@ button {
   background: rgba(216, 154, 34, 0.08);
 }
 
-/* On real phones, fill the screen edge-to-edge */
+/* On real phones, show the image edge-to-edge for an "app" feel
+   while keeping its natural aspect ratio so hotspots stay aligned. */
 @media (max-width: 520px) {
   .appStage {
     padding: 0;
     gap: 0;
-    min-height: 100svh;
-  }
-  .appPhone {
-    max-width: 100%;
-    width: 100%;
-    height: 100svh;
-    aspect-ratio: auto;
-    border-radius: 0;
-    box-shadow: none;
+    background: #050505;
   }
   .appPhoneImage {
-    object-fit: cover;
-    object-position: center;
+    max-height: 100svh;
+    max-width: 100vw;
   }
   .appBackHome {
     position: fixed;
@@ -221,7 +216,7 @@ button {
     left: 8px;
     font-size: 11px;
     padding: 6px 10px;
-    background: rgba(0, 0, 0, 0.5);
+    background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(6px);
     z-index: 100;
   }

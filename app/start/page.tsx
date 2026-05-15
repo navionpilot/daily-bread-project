@@ -8,9 +8,9 @@ export default function StartPage() {
   return (
     <PhoneScreen
       imageSrc="/assets/screens/01_scan_qr_screen.png"
-      imageAlt="Daily Bread Project welcome screen"
+      imageAlt="Daily Bread Project welcome screen — tap the center to begin"
       hotspots={[
-        { left: "16%", top: "48%", width: "68%", height: "30%", goto: "/choose", label: "Get Started", pulse: true },
+        { left: "14%", top: "44%", width: "72%", height: "34%", goto: "/choose", label: "Get Started", pulse: true },
       ]}
     />
   );
