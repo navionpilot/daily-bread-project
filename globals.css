@@ -1,5 +1,5 @@
 /* ================================================================
-   Daily Bread Project — Global Styles  (v4 — invisible hotspots)
+   Daily Bread Project — Global Styles  (v5 — bulletproof invisible)
    ================================================================ */
 
 * {
@@ -25,8 +25,8 @@ button {
 
 /* ================================================================
    HOMEPAGE  — the full Concept 10 poster with clickable phones
-   (These hover outlines stay — they're the only way to tell which
-   phone mockups on the poster are clickable.)
+   (these hover outlines stay - they're the only way to tell which
+   phone mockups on the poster are clickable)
    ================================================================ */
 
 .stage {
@@ -105,10 +105,7 @@ button {
 }
 
 /* ================================================================
-   INDIVIDUAL APP SCREENS  — each mockup with INVISIBLE clickable
-   areas. The button drawn on the screen image itself is the visual
-   affordance; users tap the button graphic and the invisible
-   hotspot catches the tap.
+   INDIVIDUAL APP SCREENS  — image with invisible click zones
    ================================================================ */
 
 .appStage {
@@ -145,40 +142,77 @@ button {
   image-rendering: -webkit-optimize-contrast;
 }
 
-/* ----------------------------------------------------------------
-   HOTSPOTS — completely invisible at all times.
-   No border, no background, no glow, no pulse — nothing to see.
-   The button drawn on the screen image is what the user reads.
-   ---------------------------------------------------------------- */
+/* ================================================================
+   HOTSPOTS — completely invisible, !important on every property
+   so nothing can override (browser defaults, design system, etc.)
+   ================================================================ */
 
+button.appHotspot,
 .appHotspot {
-  position: absolute;
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  padding: 0;
-  -webkit-tap-highlight-color: transparent;
-  outline: none;
+  position: absolute !important;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  border-color: transparent !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  outline-color: transparent !important;
+  outline-style: none !important;
+  outline-width: 0 !important;
+  outline-offset: 0 !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  -webkit-tap-highlight-color: transparent !important;
+  -webkit-appearance: none !important;
+  appearance: none !important;
+  -webkit-touch-callout: none !important;
+  filter: none !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
 }
 
-/* All hover / focus / active states stay transparent on purpose. */
+button.appHotspot:hover,
+button.appHotspot:focus,
+button.appHotspot:focus-visible,
+button.appHotspot:focus-within,
+button.appHotspot:active,
+button.appHotspot:link,
+button.appHotspot:visited,
 .appHotspot:hover,
 .appHotspot:focus,
 .appHotspot:focus-visible,
+.appHotspot:focus-within,
 .appHotspot:active {
-  background: transparent;
-  border: none;
-  box-shadow: none;
-  outline: none;
+  background: transparent !important;
+  background-color: transparent !important;
+  background-image: none !important;
+  border: none !important;
+  border-color: transparent !important;
+  border-width: 0 !important;
+  border-style: none !important;
+  border-radius: 0 !important;
+  box-shadow: none !important;
+  outline: none !important;
+  outline-color: transparent !important;
+  outline-style: none !important;
+  outline-width: 0 !important;
+  outline-offset: 0 !important;
+  filter: none !important;
+  transform: none !important;
+  transition: none !important;
+  animation: none !important;
 }
 
-/* The "pulse" class is kept so existing pages don't break, but
-   it's now a no-op visually. */
 .appHotspotPulse {
-  /* intentionally empty */
+  animation: none !important;
 }
 
-/* Floating "Back to overview" link below the phone */
 .appBackHome {
   color: rgba(244, 234, 216, 0.6);
   text-decoration: none;
@@ -197,7 +231,6 @@ button {
   background: rgba(216, 154, 34, 0.08);
 }
 
-/* On real phones, show the image edge-to-edge for an "app" feel */
 @media (max-width: 520px) {
   .appStage {
     padding: 0;
