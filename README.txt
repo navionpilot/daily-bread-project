@@ -1,10 +1,9 @@
-DAILY BREAD PROJECT — Welcome Screen Update
+DAILY BREAD PROJECT — Start Screen Update
 
-This update replaces the image-based Welcome screen with a fully coded version.
+Replaces the image-based Start screen with a fully coded version.
 
 FILES IN THIS ZIP:
-  app/welcome/page.tsx           — coded welcome screen (replaces existing)
-  app/globals.css                — adds new welcome-screen styles (replaces existing)
-  public/assets/mafutseni_logo.png  — new clean Mafutseni logo (NEW file)
+  app/start/page.tsx     — coded start screen (replaces existing)
+  app/globals.css        — adds start-screen styles (replaces existing)
 
-Instructions are in your chat with Claude.
+Instructions in chat with Claude.

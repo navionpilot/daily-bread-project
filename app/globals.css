@@ -1,5 +1,5 @@
 /* ================================================================
-   Daily Bread Project — Global Styles  (v7 — coded welcome screen)
+   Daily Bread Project — Global Styles  (v8 — coded start + welcome)
    ================================================================ */
 
 * { box-sizing: border-box; }
@@ -16,8 +16,7 @@ body { overflow-x: hidden; }
 
 button { font: inherit; }
 
-/* Load Google Fonts via @import */
-@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@400;500;600&display=swap');
 
 /* ================================================================
    HOMEPAGE  — the full Concept 10 poster with clickable phones
@@ -81,7 +80,7 @@ button { font: inherit; }
 }
 
 /* ================================================================
-   IMAGE-BASED APP SCREENS  (still used by /start, /choose, /checkout,
+   IMAGE-BASED APP SCREENS  (still used by /choose, /checkout,
    /dashboard, /impact, /manage until we rebuild them as code)
    ================================================================ */
 
@@ -182,8 +181,7 @@ button.appHotspot, .appHotspot {
 }
 
 /* ================================================================
-   CODED APP SCREENS  — the new screen wrapper for fully-coded pages
-   like /welcome. Replaces image-based screens one at a time.
+   CODED APP SCREENS  — wrapper for all fully-coded pages
    ================================================================ */
 
 .codedAppStage {
@@ -201,7 +199,6 @@ button.appHotspot, .appHotspot {
   gap: 14px;
 }
 
-/* Phone-shaped frame for desktop preview */
 .codedPhone {
   width: 300px;
   aspect-ratio: 191 / 430;
@@ -232,8 +229,7 @@ button.appHotspot, .appHotspot {
 }
 
 /* ================================================================
-   WELCOME SCREEN  — fully coded version
-   (replaces the old /assets/screens/04_welcome_screen.png approach)
+   WELCOME SCREEN  (already in production)
    ================================================================ */
 
 .welcomeScreen {
@@ -247,7 +243,6 @@ button.appHotspot, .appHotspot {
   padding: 5% 7%;
   overflow: hidden;
 }
-
 @media (max-width: 520px) {
   .welcomeScreen { border-radius: 0; }
 }
@@ -267,7 +262,6 @@ button.appHotspot, .appHotspot {
 .welcomeStatusIcons svg { display: block; }
 
 @media (max-width: 520px) {
-  /* hide our fake status bar on real phones (real OS status bar shows) */
   .welcomeStatusBar { display: none; }
 }
 
@@ -280,7 +274,6 @@ button.appHotspot, .appHotspot {
   padding: 3% 0 1%;
 }
 
-/* Gold-bordered celebration circle with checkmark */
 .welcomeCheckCircle {
   width: 34%;
   aspect-ratio: 1;
@@ -291,19 +284,13 @@ button.appHotspot, .appHotspot {
   justify-content: center;
 }
 .welcomeCheckCircle svg {
-  width: 60%;
-  height: 60%;
-  stroke: #d89a22;
-  stroke-width: 2.8;
-  stroke-linecap: round;
-  stroke-linejoin: round;
+  width: 60%; height: 60%;
+  stroke: #d89a22; stroke-width: 2.8;
+  stroke-linecap: round; stroke-linejoin: round;
   fill: none;
 }
 
-.welcomeTitle {
-  text-align: center;
-  line-height: 1.05;
-}
+.welcomeTitle { text-align: center; line-height: 1.05; }
 .welcomePre {
   display: block;
   font-family: 'Oswald', sans-serif;
@@ -351,8 +338,147 @@ button.appHotspot, .appHotspot {
 .welcomeCtaBtn:hover { background: #c98a18; }
 .welcomeCtaBtn:active { transform: scale(0.98); }
 
-.welcomeLogo {
-  width: 50%;
+.welcomeLogo { width: 50%; height: auto; object-fit: contain; }
+
+/* ================================================================
+   START SCREEN  (new! — fully coded)
+   ================================================================ */
+
+.startScreen {
+  width: 100%;
+  height: 100%;
+  background: #f4ead8;
+  color: #14110c;
+  border-radius: 31px;
+  display: flex;
+  flex-direction: column;
+  padding: 5% 7%;
+  overflow: hidden;
+}
+@media (max-width: 520px) {
+  .startScreen { border-radius: 0; }
+}
+
+.startStatusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #14110c;
+  flex-shrink: 0;
+  padding-top: 1%;
+}
+.startStatusIcons { display: flex; align-items: center; gap: 4px; }
+.startStatusIcons svg { display: block; }
+
+@media (max-width: 520px) {
+  .startStatusBar { display: none; }
+}
+
+.startContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10% 0 1%;
+}
+
+.startTopLogo {
+  width: 48%;
   height: auto;
   object-fit: contain;
+  margin-bottom: 2%;
 }
+
+.startTitle { text-align: center; line-height: 1.05; }
+.startTitleBig {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(30px, 13cqw, 42px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #14110c;
+  line-height: 1;
+}
+.startTitleSub {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(18px, 7.5cqw, 26px);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: #14110c;
+  margin-top: 3%;
+}
+
+.startTagline {
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(13px, 4.8cqw, 17px);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  color: #14110c;
+  text-align: center;
+  line-height: 1.5;
+  text-transform: uppercase;
+  margin-top: 3%;
+  margin-bottom: 3%;
+}
+
+.startCtaWrap {
+  margin: auto 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+.startCtaBtn {
+  background: #d89a22;
+  color: #ffffff;
+  border: none;
+  border-radius: 8px;
+  padding: 5% 4%;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(15px, 5.5cqw, 19px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 78%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  transition: background 0.15s, transform 0.1s;
+  box-shadow: 0 6px 18px rgba(216, 154, 34, 0.4);
+}
+.startCtaArrow { font-size: 1.1em; line-height: 1; }
+.startCtaBtn:hover { background: #c98a18; }
+.startCtaBtn:active { transform: scale(0.97); }
+
+.startSponsor {
+  width: 100%;
+  text-align: center;
+  border-top: 1px solid rgba(20, 17, 12, 0.15);
+  padding-top: 4%;
+  margin-top: 3%;
+  line-height: 1.4;
+}
+.startSponsorPrimary {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(11px, 4cqw, 15px);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #d89a22;
+  text-transform: uppercase;
+  margin-bottom: 2%;
+}
+.startSponsorSecondary {
+  display: block;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(10px, 3.5cqw, 13px);
+  font-weight: 400;
+  color: #5f574b;
+  letter-spacing: 0.02em;
+}
+.startSponsorBrand { font-weight: 600; color: #14110c; }
