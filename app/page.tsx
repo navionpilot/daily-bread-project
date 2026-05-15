@@ -6,6 +6,10 @@ import { useRouter } from "next/navigation";
  * The Daily Bread Project homepage.
  * Shows the full Concept 10 poster. Each phone screen is a clickable
  * hotspot that navigates to that screen of the working app.
+ *
+ * Note: the Stories, Prayer Requests, and Hourly Impact phones are
+ * still visually present in the poster image but are no longer
+ * clickable since those screens were removed.
  */
 
 type Hotspot = {
@@ -15,7 +19,7 @@ type Hotspot = {
 };
 
 const hotspots: Hotspot[] = [
-  // TOP ROW — main user flow
+  // TOP ROW — main donor flow
   {
     title: "Scan QR Code",
     goto: "/start",
@@ -42,26 +46,11 @@ const hotspots: Hotspot[] = [
     style: { left: "80.2%", top: "13.5%", width: "18%", height: "28%" },
   },
 
-  // BOTTOM ROW — dashboard sub-screens
+  // BOTTOM ROW — only the dashboard sub-screens we kept
   {
     title: "Today's Table",
     goto: "/dashboard",
     style: { left: "1.5%", top: "45%", width: "15.5%", height: "24%" },
-  },
-  {
-    title: "Hourly Impact",
-    goto: "/hourly",
-    style: { left: "18.2%", top: "45%", width: "15.5%", height: "24%" },
-  },
-  {
-    title: "Stories",
-    goto: "/stories",
-    style: { left: "34.8%", top: "45%", width: "15.5%", height: "24%" },
-  },
-  {
-    title: "Prayer Requests",
-    goto: "/pray",
-    style: { left: "51.5%", top: "45%", width: "15.5%", height: "24%" },
   },
   {
     title: "Your Impact",
