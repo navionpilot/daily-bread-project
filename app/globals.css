@@ -1,27 +1,23 @@
 /* ================================================================
-   Daily Bread Project — Global Styles  (v6 — active tab indicator)
+   Daily Bread Project — Global Styles  (v7 — coded welcome screen)
    ================================================================ */
 
-* {
-  box-sizing: border-box;
-}
+* { box-sizing: border-box; }
 
-html,
-body {
+html, body {
   margin: 0;
   min-height: 100%;
   background: #050505;
   color: #f4ead8;
-  font-family: Arial, Helvetica, sans-serif;
+  font-family: 'DM Sans', Arial, Helvetica, sans-serif;
 }
 
-body {
-  overflow-x: hidden;
-}
+body { overflow-x: hidden; }
 
-button {
-  font: inherit;
-}
+button { font: inherit; }
+
+/* Load Google Fonts via @import */
+@import url('https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;600;700&family=DM+Sans:wght@400;500&display=swap');
 
 /* ================================================================
    HOMEPAGE  — the full Concept 10 poster with clickable phones
@@ -33,13 +29,7 @@ button {
   position: relative;
   background: #050505;
 }
-
-.poster {
-  width: 100%;
-  display: block;
-  height: auto;
-}
-
+.poster { width: 100%; display: block; height: auto; }
 .hotspot {
   position: absolute;
   border: 2px solid rgba(216, 154, 34, 0);
@@ -49,14 +39,11 @@ button {
   transition: 0.15s ease;
   padding: 0;
 }
-
-.hotspot:hover,
-.hotspot:focus {
+.hotspot:hover, .hotspot:focus {
   border-color: rgba(216, 154, 34, 0.85);
   background: rgba(216, 154, 34, 0.10);
   box-shadow: 0 0 18px rgba(216, 154, 34, 0.45);
 }
-
 .hotspot span {
   position: absolute;
   left: 50%;
@@ -74,12 +61,7 @@ button {
   opacity: 0;
   pointer-events: none;
 }
-
-.hotspot:hover span,
-.hotspot:focus span {
-  opacity: 1;
-}
-
+.hotspot:hover span, .hotspot:focus span { opacity: 1; }
 .buildNote {
   position: fixed;
   left: 14px;
@@ -94,16 +76,13 @@ button {
   line-height: 1.45;
   z-index: 10;
 }
-
 @media (max-width: 700px) {
-  .buildNote {
-    position: static;
-    margin: 12px;
-  }
+  .buildNote { position: static; margin: 12px; }
 }
 
 /* ================================================================
-   INDIVIDUAL APP SCREENS
+   IMAGE-BASED APP SCREENS  (still used by /start, /choose, /checkout,
+   /dashboard, /impact, /manage until we rebuild them as code)
    ================================================================ */
 
 .appStage {
@@ -120,14 +99,12 @@ button {
     #050505;
   gap: 14px;
 }
-
 .appPhone {
   position: relative;
   display: inline-block;
   line-height: 0;
   max-width: 100%;
 }
-
 .appPhoneImage {
   display: block;
   width: auto;
@@ -139,15 +116,7 @@ button {
   pointer-events: none;
   image-rendering: -webkit-optimize-contrast;
 }
-
-/* ================================================================
-   HOTSPOTS — invisible by default, with two exceptions:
-   1. Brief flash on tap (so user knows tap registered)
-   2. Gold bar under the active-page tab (so user knows where they are)
-   ================================================================ */
-
-button.appHotspot,
-.appHotspot {
+button.appHotspot, .appHotspot {
   position: absolute !important;
   background: transparent !important;
   border: none !important;
@@ -161,27 +130,16 @@ button.appHotspot,
   appearance: none !important;
   transition: background-color 0.15s ease !important;
 }
-
-/* Brief tap-feedback flash on press */
 .appHotspot:active {
   background: rgba(216, 154, 34, 0.22) !important;
   border-radius: 6px !important;
 }
-
-/* Subtle hover only on real mouse (not touch) so phones stay clean */
 @media (hover: hover) and (pointer: fine) {
   .appHotspot:hover {
     background: rgba(216, 154, 34, 0.12) !important;
     border-radius: 6px !important;
   }
 }
-
-/* ================================================================
-   ACTIVE-TAB INDICATOR
-   A gold bar drawn under whichever hotspot matches the current page,
-   so the user always knows where they are.
-   ================================================================ */
-
 .appHotspot.appHotspotActive::after {
   content: "";
   position: absolute;
@@ -194,13 +152,8 @@ button.appHotspot,
   box-shadow: 0 0 8px rgba(216, 154, 34, 0.6);
   pointer-events: none;
 }
+.appHotspotPulse { animation: none !important; }
 
-/* Pulse class kept as no-op for compatibility */
-.appHotspotPulse {
-  animation: none !important;
-}
-
-/* "Back to overview" link */
 .appBackHome {
   color: rgba(244, 234, 216, 0.6);
   text-decoration: none;
@@ -211,32 +164,195 @@ button.appHotspot,
   border-radius: 999px;
   transition: 0.2s ease;
 }
-
-.appBackHome:hover,
-.appBackHome:focus {
+.appBackHome:hover, .appBackHome:focus {
   color: #f4ead8;
   border-color: rgba(216, 154, 34, 0.6);
   background: rgba(216, 154, 34, 0.08);
 }
-
 @media (max-width: 520px) {
-  .appStage {
-    padding: 0;
-    gap: 0;
-    background: #050505;
-  }
-  .appPhoneImage {
-    max-height: 100svh;
-    max-width: 100vw;
-  }
+  .appStage { padding: 0; gap: 0; background: #050505; }
+  .appPhoneImage { max-height: 100svh; max-width: 100vw; }
   .appBackHome {
-    position: fixed;
-    top: 8px;
-    left: 8px;
-    font-size: 11px;
-    padding: 6px 10px;
+    position: fixed; top: 8px; left: 8px;
+    font-size: 11px; padding: 6px 10px;
     background: rgba(0, 0, 0, 0.55);
     backdrop-filter: blur(6px);
     z-index: 100;
   }
+}
+
+/* ================================================================
+   CODED APP SCREENS  — the new screen wrapper for fully-coded pages
+   like /welcome. Replaces image-based screens one at a time.
+   ================================================================ */
+
+.codedAppStage {
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px 16px;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(216, 154, 34, 0.06), transparent 70%),
+    #050505;
+  gap: 14px;
+}
+
+/* Phone-shaped frame for desktop preview */
+.codedPhone {
+  width: 300px;
+  aspect-ratio: 191 / 430;
+  max-width: 90vw;
+  max-height: min(85vh, 670px);
+  background: #111;
+  border-radius: 38px;
+  padding: 7px;
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04),
+    0 30px 60px rgba(0, 0, 0, 0.5);
+  overflow: hidden;
+  container-type: inline-size;
+}
+
+@media (max-width: 520px) {
+  .codedAppStage { padding: 0; gap: 0; }
+  .codedPhone {
+    width: 100vw;
+    max-width: 100vw;
+    max-height: 100svh;
+    height: 100svh;
+    aspect-ratio: auto;
+    border-radius: 0;
+    padding: 0;
+    box-shadow: none;
+  }
+}
+
+/* ================================================================
+   WELCOME SCREEN  — fully coded version
+   (replaces the old /assets/screens/04_welcome_screen.png approach)
+   ================================================================ */
+
+.welcomeScreen {
+  width: 100%;
+  height: 100%;
+  background: #050505;
+  color: #f4ead8;
+  border-radius: 31px;
+  display: flex;
+  flex-direction: column;
+  padding: 5% 7%;
+  overflow: hidden;
+}
+
+@media (max-width: 520px) {
+  .welcomeScreen { border-radius: 0; }
+}
+
+.welcomeStatusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #f4ead8;
+  flex-shrink: 0;
+  padding-top: 1%;
+}
+.welcomeStatusIcons { display: flex; align-items: center; gap: 4px; }
+.welcomeStatusIcons svg { display: block; }
+
+@media (max-width: 520px) {
+  /* hide our fake status bar on real phones (real OS status bar shows) */
+  .welcomeStatusBar { display: none; }
+}
+
+.welcomeContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 3% 0 1%;
+}
+
+/* Gold-bordered celebration circle with checkmark */
+.welcomeCheckCircle {
+  width: 34%;
+  aspect-ratio: 1;
+  border: 3px solid #d89a22;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.welcomeCheckCircle svg {
+  width: 60%;
+  height: 60%;
+  stroke: #d89a22;
+  stroke-width: 2.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+.welcomeTitle {
+  text-align: center;
+  line-height: 1.05;
+}
+.welcomePre {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(15px, 6cqw, 20px);
+  font-weight: 500;
+  letter-spacing: 0.16em;
+  color: #f4ead8;
+  margin-bottom: 4%;
+}
+.welcomeBig {
+  display: block;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(30px, 13cqw, 42px);
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  color: #f4ead8;
+  line-height: 1.05;
+}
+
+.welcomeBody {
+  text-align: center;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(15px, 5.5cqw, 19px);
+  font-weight: 400;
+  line-height: 1.5;
+  color: rgba(244, 234, 216, 0.78);
+}
+
+.welcomeCtaBtn {
+  background: #d89a22;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 5% 6%;
+  font-family: 'Oswald', sans-serif;
+  font-size: clamp(15px, 5.5cqw, 19px);
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  cursor: pointer;
+  width: 88%;
+  transition: background 0.15s, transform 0.1s;
+  box-shadow: 0 4px 16px rgba(216, 154, 34, 0.35);
+}
+.welcomeCtaBtn:hover { background: #c98a18; }
+.welcomeCtaBtn:active { transform: scale(0.98); }
+
+.welcomeLogo {
+  width: 50%;
+  height: auto;
+  object-fit: contain;
 }
