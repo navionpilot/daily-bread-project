@@ -4,12 +4,13 @@ import { useRouter } from "next/navigation";
 
 /**
  * The Daily Bread Project homepage.
- * Shows the full Concept 10 poster. Each phone screen is a clickable
- * hotspot that navigates to that screen of the working app.
+ * Shows the cleaned-up Concept 10 poster (top phones + push
+ * notifications + features footer — middle "Your Impact Dashboard"
+ * row was removed because those screens aren't part of the public
+ * marketing flow).
  *
- * Note: the Stories, Prayer Requests, and Hourly Impact phones are
- * still visually present in the poster image but are no longer
- * clickable since those screens were removed.
+ * The 5 phones in the top row are clickable; they navigate to
+ * the donor sign-up flow.
  */
 
 type Hotspot = {
@@ -19,48 +20,30 @@ type Hotspot = {
 };
 
 const hotspots: Hotspot[] = [
-  // TOP ROW — main donor flow
   {
     title: "Scan QR Code",
     goto: "/start",
-    style: { left: "1.5%", top: "13.5%", width: "18%", height: "28%" },
+    style: { left: "1.5%", top: "18.4%", width: "18%", height: "38%" },
   },
   {
     title: "Choose Your Impact",
     goto: "/choose",
-    style: { left: "21.2%", top: "13.5%", width: "18%", height: "28%" },
+    style: { left: "21.2%", top: "18.4%", width: "18%", height: "38%" },
   },
   {
     title: "Secure Checkout",
     goto: "/checkout",
-    style: { left: "40.8%", top: "13.5%", width: "18%", height: "28%" },
+    style: { left: "40.8%", top: "18.4%", width: "18%", height: "38%" },
   },
   {
     title: "Welcome Screen",
     goto: "/welcome",
-    style: { left: "60.5%", top: "13.5%", width: "18%", height: "28%" },
+    style: { left: "60.5%", top: "18.4%", width: "18%", height: "38%" },
   },
   {
     title: "Impact Dashboard",
     goto: "/dashboard",
-    style: { left: "80.2%", top: "13.5%", width: "18%", height: "28%" },
-  },
-
-  // BOTTOM ROW — only the dashboard sub-screens we kept
-  {
-    title: "Today's Table",
-    goto: "/dashboard",
-    style: { left: "1.5%", top: "45%", width: "15.5%", height: "24%" },
-  },
-  {
-    title: "Your Impact",
-    goto: "/impact",
-    style: { left: "68.2%", top: "45%", width: "15.5%", height: "24%" },
-  },
-  {
-    title: "Manage Giving",
-    goto: "/manage",
-    style: { left: "84.8%", top: "45%", width: "13.5%", height: "24%" },
+    style: { left: "80.2%", top: "18.4%", width: "18%", height: "38%" },
   },
 ];
 
@@ -72,7 +55,7 @@ export default function HomePage() {
       <img
         className="poster"
         src="/assets/concept10-approved-app.png"
-        alt="Daily Bread Project — Concept 10 approved app design"
+        alt="Daily Bread Project — Help Feed Today's Table"
       />
 
       {hotspots.map((spot) => (
@@ -88,7 +71,7 @@ export default function HomePage() {
       ))}
 
       <div className="buildNote">
-        Tap any phone screen to enter that part of the app.
+        Tap any phone screen to step through the donor flow.
       </div>
     </main>
   );
