@@ -1,13 +1,12 @@
-# Daily Bread Project App
+# Daily Bread Exact Concept 10 App
 
-A Next.js starter prototype for the Daily Bread Project supporting the Mafutseni Care Point sponsored by Fellowship Baptist Church — Meridian, MS.
+This is the exact visual prototype version. It uses the approved Concept 10 image as the visual layer and adds clickable hotspots.
 
-## Included
+This is the correct first step if the priority is making the deployed app look exactly like the approved Concept 10 scheme.
 
-- Concept 10 inspired clickable app prototype
-- $1/day, $2/day, $3/day giving tiers
-- Stripe Checkout API route
-- Supabase starter schema
-- Vercel-ready Next.js project
-
-See `docs/STEP_BY_STEP_SETUP.md` for setup instructions.
+Next phase:
+- crop each phone screen into assets
+- rebuild each screen as live React components one at a time
+- connect Stripe
+- connect Supabase
+- add admin dashboard

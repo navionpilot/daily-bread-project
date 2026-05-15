@@ -6,11 +6,7 @@ export const metadata: Metadata = {
   description: "Help Feed Today's Table at the Mafutseni Care Point.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
       <body>{children}</body>
