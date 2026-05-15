@@ -1,5 +1,5 @@
 /* ================================================================
-   Daily Bread Project — Global Styles  (v5 — bulletproof invisible)
+   Daily Bread Project — Global Styles  (v6 — active tab indicator)
    ================================================================ */
 
 * {
@@ -25,8 +25,6 @@ button {
 
 /* ================================================================
    HOMEPAGE  — the full Concept 10 poster with clickable phones
-   (these hover outlines stay - they're the only way to tell which
-   phone mockups on the poster are clickable)
    ================================================================ */
 
 .stage {
@@ -105,7 +103,7 @@ button {
 }
 
 /* ================================================================
-   INDIVIDUAL APP SCREENS  — image with invisible click zones
+   INDIVIDUAL APP SCREENS
    ================================================================ */
 
 .appStage {
@@ -143,76 +141,66 @@ button {
 }
 
 /* ================================================================
-   HOTSPOTS — completely invisible, !important on every property
-   so nothing can override (browser defaults, design system, etc.)
+   HOTSPOTS — invisible by default, with two exceptions:
+   1. Brief flash on tap (so user knows tap registered)
+   2. Gold bar under the active-page tab (so user knows where they are)
    ================================================================ */
 
 button.appHotspot,
 .appHotspot {
   position: absolute !important;
   background: transparent !important;
-  background-color: transparent !important;
-  background-image: none !important;
   border: none !important;
-  border-color: transparent !important;
-  border-width: 0 !important;
-  border-style: none !important;
-  border-radius: 0 !important;
   box-shadow: none !important;
   outline: none !important;
-  outline-color: transparent !important;
-  outline-style: none !important;
-  outline-width: 0 !important;
-  outline-offset: 0 !important;
   cursor: pointer !important;
   padding: 0 !important;
   margin: 0 !important;
   -webkit-tap-highlight-color: transparent !important;
   -webkit-appearance: none !important;
   appearance: none !important;
-  -webkit-touch-callout: none !important;
-  filter: none !important;
-  transform: none !important;
-  transition: none !important;
-  animation: none !important;
+  transition: background-color 0.15s ease !important;
 }
 
-button.appHotspot:hover,
-button.appHotspot:focus,
-button.appHotspot:focus-visible,
-button.appHotspot:focus-within,
-button.appHotspot:active,
-button.appHotspot:link,
-button.appHotspot:visited,
-.appHotspot:hover,
-.appHotspot:focus,
-.appHotspot:focus-visible,
-.appHotspot:focus-within,
+/* Brief tap-feedback flash on press */
 .appHotspot:active {
-  background: transparent !important;
-  background-color: transparent !important;
-  background-image: none !important;
-  border: none !important;
-  border-color: transparent !important;
-  border-width: 0 !important;
-  border-style: none !important;
-  border-radius: 0 !important;
-  box-shadow: none !important;
-  outline: none !important;
-  outline-color: transparent !important;
-  outline-style: none !important;
-  outline-width: 0 !important;
-  outline-offset: 0 !important;
-  filter: none !important;
-  transform: none !important;
-  transition: none !important;
-  animation: none !important;
+  background: rgba(216, 154, 34, 0.22) !important;
+  border-radius: 6px !important;
 }
 
+/* Subtle hover only on real mouse (not touch) so phones stay clean */
+@media (hover: hover) and (pointer: fine) {
+  .appHotspot:hover {
+    background: rgba(216, 154, 34, 0.12) !important;
+    border-radius: 6px !important;
+  }
+}
+
+/* ================================================================
+   ACTIVE-TAB INDICATOR
+   A gold bar drawn under whichever hotspot matches the current page,
+   so the user always knows where they are.
+   ================================================================ */
+
+.appHotspot.appHotspotActive::after {
+  content: "";
+  position: absolute;
+  left: 25%;
+  right: 25%;
+  bottom: 8%;
+  height: 3px;
+  background: #d89a22;
+  border-radius: 999px;
+  box-shadow: 0 0 8px rgba(216, 154, 34, 0.6);
+  pointer-events: none;
+}
+
+/* Pulse class kept as no-op for compatibility */
 .appHotspotPulse {
   animation: none !important;
 }
 
+/* "Back to overview" link */
 .appBackHome {
   color: rgba(244, 234, 216, 0.6);
   text-decoration: none;
