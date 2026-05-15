@@ -1,3 +1,7 @@
+/* ================================================================
+   Daily Bread Project — Global Styles
+   ================================================================ */
+
 * {
   box-sizing: border-box;
 }
@@ -19,6 +23,10 @@ button {
   font: inherit;
 }
 
+/* ================================================================
+   HOMEPAGE  — the full Concept 10 poster with clickable phones
+   ================================================================ */
+
 .stage {
   width: min(100vw, 1100px);
   margin: 0 auto;
@@ -34,7 +42,7 @@ button {
 
 .hotspot {
   position: absolute;
-  border: 2px solid rgba(216,154,34,0);
+  border: 2px solid rgba(216, 154, 34, 0);
   border-radius: 18px;
   background: transparent;
   cursor: pointer;
@@ -42,10 +50,11 @@ button {
   padding: 0;
 }
 
-.hotspot:hover {
-  border-color: rgba(216,154,34,.85);
-  background: rgba(216,154,34,.10);
-  box-shadow: 0 0 18px rgba(216,154,34,.45);
+.hotspot:hover,
+.hotspot:focus {
+  border-color: rgba(216, 154, 34, 0.85);
+  background: rgba(216, 154, 34, 0.10);
+  box-shadow: 0 0 18px rgba(216, 154, 34, 0.45);
 }
 
 .hotspot span {
@@ -55,7 +64,7 @@ button {
   transform: translateX(-50%);
   white-space: nowrap;
   font-size: 11px;
-  letter-spacing: .08em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 900;
   color: #050505;
@@ -66,55 +75,9 @@ button {
   pointer-events: none;
 }
 
-.hotspot:hover span {
+.hotspot:hover span,
+.hotspot:focus span {
   opacity: 1;
-}
-
-.modalBackdrop {
-  position: fixed;
-  inset: 0;
-  background: rgba(0,0,0,.84);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  z-index: 20;
-  padding: 24px;
-}
-
-.modalCard {
-  width: min(520px, 92vw);
-  background: #0a0a0a;
-  border: 1px solid rgba(216,154,34,.55);
-  border-radius: 24px;
-  padding: 22px;
-  box-shadow: 0 30px 90px rgba(0,0,0,.65);
-  text-align: center;
-}
-
-.modalCard h2 {
-  color: #d89a22;
-  text-transform: uppercase;
-  letter-spacing: .08em;
-  font-size: 22px;
-  margin-bottom: 10px;
-}
-
-.modalCard p {
-  color: rgba(244,234,216,.78);
-  line-height: 1.55;
-  margin-bottom: 18px;
-}
-
-.modalCard button {
-  background: linear-gradient(135deg, #a66a08, #d89a22);
-  color: #fff;
-  border: 0;
-  border-radius: 14px;
-  padding: 14px 18px;
-  font-weight: 900;
-  text-transform: uppercase;
-  letter-spacing: .06em;
-  cursor: pointer;
 }
 
 .buildNote {
@@ -122,8 +85,8 @@ button {
   left: 14px;
   bottom: 14px;
   max-width: 340px;
-  background: rgba(0,0,0,.84);
-  border: 1px solid rgba(216,154,34,.5);
+  background: rgba(0, 0, 0, 0.84);
+  border: 1px solid rgba(216, 154, 34, 0.5);
   color: #f4ead8;
   padding: 12px 14px;
   border-radius: 12px;
@@ -136,5 +99,130 @@ button {
   .buildNote {
     position: static;
     margin: 12px;
+  }
+}
+
+/* ================================================================
+   INDIVIDUAL APP SCREENS  — phone-shaped layout for each screen
+   ================================================================ */
+
+.appStage {
+  min-height: 100vh;
+  min-height: 100svh;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+  background:
+    radial-gradient(ellipse 60% 40% at 50% 50%, rgba(216, 154, 34, 0.06), transparent 70%),
+    #050505;
+  gap: 16px;
+}
+
+/* The phone-shaped container. The screen image lives inside.
+   Aspect ratio matches the mockup phone (~191:430). */
+.appPhone {
+  position: relative;
+  width: 100%;
+  max-width: 380px;
+  aspect-ratio: 191 / 430;
+  background: #111;
+  border-radius: 38px;
+  overflow: hidden;
+  box-shadow:
+    inset 0 0 0 2px rgba(255, 255, 255, 0.05),
+    0 24px 60px rgba(0, 0, 0, 0.6);
+}
+
+/* The actual screen mockup image, fills the phone */
+.appPhoneImage {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  user-select: none;
+  -webkit-user-drag: none;
+  pointer-events: none;
+}
+
+/* Invisible clickable areas over the buttons in each screen image */
+.appHotspot {
+  position: absolute;
+  background: transparent;
+  border: 2px solid transparent;
+  border-radius: 14px;
+  cursor: pointer;
+  padding: 0;
+  transition: 0.15s ease;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.appHotspot:hover,
+.appHotspot:focus,
+.appHotspot:active {
+  border-color: rgba(216, 154, 34, 0.7);
+  background: rgba(216, 154, 34, 0.18);
+  box-shadow: 0 0 18px rgba(216, 154, 34, 0.4);
+}
+
+/* Subtle pulse on the main action button so users notice it */
+@keyframes appPulse {
+  0%, 100% { box-shadow: 0 0 0 2px rgba(216, 154, 34, 0); }
+  50%      { box-shadow: 0 0 0 2px rgba(216, 154, 34, 0.5); }
+}
+
+.appHotspotPulse {
+  animation: appPulse 2.2s ease-in-out infinite;
+}
+
+/* "Back to overview" link */
+.appBackHome {
+  color: rgba(244, 234, 216, 0.6);
+  text-decoration: none;
+  font-size: 13px;
+  letter-spacing: 0.04em;
+  padding: 8px 16px;
+  border: 1px solid rgba(216, 154, 34, 0.25);
+  border-radius: 999px;
+  transition: 0.2s ease;
+}
+
+.appBackHome:hover,
+.appBackHome:focus {
+  color: #f4ead8;
+  border-color: rgba(216, 154, 34, 0.6);
+  background: rgba(216, 154, 34, 0.08);
+}
+
+/* On real phones, fill the screen edge-to-edge */
+@media (max-width: 520px) {
+  .appStage {
+    padding: 0;
+    gap: 0;
+    min-height: 100svh;
+  }
+  .appPhone {
+    max-width: 100%;
+    width: 100%;
+    height: 100svh;
+    aspect-ratio: auto;
+    border-radius: 0;
+    box-shadow: none;
+  }
+  .appPhoneImage {
+    object-fit: cover;
+    object-position: center;
+  }
+  .appBackHome {
+    position: fixed;
+    top: 8px;
+    left: 8px;
+    font-size: 11px;
+    padding: 6px 10px;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(6px);
+    z-index: 100;
   }
 }

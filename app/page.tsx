@@ -1,79 +1,89 @@
 "use client";
 
-import { useState } from "react";
+import { useRouter } from "next/navigation";
 
-type ModalContent = {
+/**
+ * The Daily Bread Project homepage.
+ * Shows the full Concept 10 poster. Each phone screen is a clickable
+ * hotspot that navigates to that screen of the working app.
+ */
+
+type Hotspot = {
   title: string;
-  body: string;
+  goto: string;
+  style: { left: string; top: string; width: string; height: string };
 };
 
-const hotspots = [
+const hotspots: Hotspot[] = [
+  // TOP ROW — main user flow
   {
     title: "Scan QR Code",
-    body: "This opens the Daily Bread Project onboarding screen where a new donor can start in seconds.",
+    goto: "/start",
     style: { left: "1.5%", top: "13.5%", width: "18%", height: "28%" },
   },
   {
     title: "Choose Your Impact",
-    body: "The donor chooses $1, $2, or $3 per day. The card is charged monthly, but impact is counted daily.",
+    goto: "/choose",
     style: { left: "21.2%", top: "13.5%", width: "18%", height: "28%" },
   },
   {
     title: "Secure Checkout",
-    body: "This becomes the Stripe checkout step for credit card, debit card, Apple Pay, or Google Pay.",
+    goto: "/checkout",
     style: { left: "40.8%", top: "13.5%", width: "18%", height: "28%" },
   },
   {
     title: "Welcome Screen",
-    body: "After payment, the donor becomes a Daily Bread Partner and enters the impact dashboard.",
+    goto: "/welcome",
     style: { left: "60.5%", top: "13.5%", width: "18%", height: "28%" },
   },
   {
     title: "Impact Dashboard",
-    body: "This dashboard updates hourly and shows 487 / 500 meals provided, remaining meals, and daily progress.",
+    goto: "/dashboard",
     style: { left: "80.2%", top: "13.5%", width: "18%", height: "28%" },
   },
+
+  // BOTTOM ROW — dashboard sub-screens
   {
-    title: "Today’s Table",
-    body: "Shows the real-time daily meal count for the Mafutseni Care Point.",
+    title: "Today's Table",
+    goto: "/dashboard",
     style: { left: "1.5%", top: "45%", width: "15.5%", height: "24%" },
   },
   {
     title: "Hourly Impact",
-    body: "Shows hourly meal funding progress through the day.",
+    goto: "/hourly",
     style: { left: "18.2%", top: "45%", width: "15.5%", height: "24%" },
   },
   {
     title: "Stories",
-    body: "This screen shares photos and updates from the care point.",
+    goto: "/stories",
     style: { left: "34.8%", top: "45%", width: "15.5%", height: "24%" },
   },
   {
     title: "Prayer Requests",
-    body: "Partners can pray for caregivers, children, provision, health, and education.",
+    goto: "/pray",
     style: { left: "51.5%", top: "45%", width: "15.5%", height: "24%" },
   },
   {
     title: "Your Impact",
-    body: "Shows each donor how many meals they helped provide this month.",
+    goto: "/impact",
     style: { left: "68.2%", top: "45%", width: "15.5%", height: "24%" },
   },
   {
     title: "Manage Giving",
-    body: "Lets the donor update payment method, change plan, pause, or cancel.",
+    goto: "/manage",
     style: { left: "84.8%", top: "45%", width: "13.5%", height: "24%" },
   },
 ];
 
 export default function HomePage() {
-  const [modal, setModal] = useState<ModalContent | null>(null);
+  const router = useRouter();
 
   return (
     <main className="stage">
       <img
         className="poster"
         src="/assets/concept10-approved-app.png"
-        alt="Daily Bread Project Concept 10 approved app design"
+        alt="Daily Bread Project — Concept 10 approved app design"
       />
 
       {hotspots.map((spot) => (
@@ -81,7 +91,7 @@ export default function HomePage() {
           key={spot.title}
           className="hotspot"
           style={spot.style}
-          onClick={() => setModal({ title: spot.title, body: spot.body })}
+          onClick={() => router.push(spot.goto)}
           aria-label={spot.title}
         >
           <span>{spot.title}</span>
@@ -89,18 +99,8 @@ export default function HomePage() {
       ))}
 
       <div className="buildNote">
-        Exact Concept 10 visual prototype. Click the phone screens.
+        Tap any phone screen to enter that part of the app.
       </div>
-
-      {modal && (
-        <div className="modalBackdrop" onClick={() => setModal(null)}>
-          <div className="modalCard" onClick={(event) => event.stopPropagation()}>
-            <h2>{modal.title}</h2>
-            <p>{modal.body}</p>
-            <button onClick={() => setModal(null)}>Close</button>
-          </div>
-        </div>
-      )}
     </main>
   );
 }
