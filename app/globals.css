@@ -1,5 +1,5 @@
 /* ================================================================
-   Daily Bread Project — Global Styles  (v13 — coded impact)
+   Daily Bread Project — Global Styles  (v14 — ALL SCREENS CODED)
    ================================================================ */
 
 * { box-sizing: border-box; }
@@ -80,8 +80,7 @@ button { font: inherit; }
 }
 
 /* ================================================================
-   IMAGE-BASED APP SCREENS  (still used by /manage until
-   we rebuild it as code)
+   IMAGE-BASED APP SCREENS  (none — all screens fully coded!)
    ================================================================ */
 
 .appStage {
@@ -1243,6 +1242,222 @@ button.appHotspot, .appHotspot {
 }
 .impactNavBtn--active { color: #d89a22; }
 .impactNavBtn--active::after {
+  content: "";
+  position: absolute;
+  top: -1px;
+  left: 25%;
+  right: 25%;
+  height: 2px;
+  background: #d89a22;
+  border-radius: 999px;
+}
+
+/* ================================================================
+   MANAGE GIVING SCREEN  (new! — fully coded — FINAL SCREEN)
+   ================================================================ */
+
+.manageScreen {
+  width: 100%;
+  height: 100%;
+  background: #f4ead8;
+  color: #14110c;
+  border-radius: 31px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+@media (max-width: 520px) {
+  .manageScreen { border-radius: 0; }
+}
+
+.manageStatusBar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  font-size: 11px;
+  font-weight: 600;
+  color: #14110c;
+  padding: 4% 7% 0;
+  flex-shrink: 0;
+}
+.manageStatusIcons { display: flex; align-items: center; gap: 4px; }
+.manageStatusIcons svg { display: block; }
+@media (max-width: 520px) {
+  .manageStatusBar { display: none; }
+}
+
+.manageHeader {
+  padding: 8% 7% 4%;
+  flex-shrink: 0;
+}
+.manageTitle {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 700;
+  font-size: clamp(24px, 10cqw, 34px);
+  letter-spacing: 0.04em;
+  color: #14110c;
+  line-height: 1;
+}
+
+.manageContent {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 0 7%;
+  min-height: 0;
+}
+
+/* Plan info rows */
+.managePlanList {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 6%;
+}
+.managePlanRow {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 4% 0;
+  border-bottom: 1px solid rgba(20, 17, 12, 0.12);
+  gap: 12px;
+}
+.managePlanRow:last-child { border-bottom: none; }
+.managePlanLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(13px, 4.5cqw, 16px);
+  font-weight: 500;
+  color: #14110c;
+  flex-shrink: 0;
+}
+.managePlanValue {
+  text-align: right;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(13px, 4.5cqw, 16px);
+  font-weight: 500;
+  color: #14110c;
+  line-height: 1.3;
+}
+.managePlanValueSub {
+  display: block;
+  font-size: 0.85em;
+  color: #5f574b;
+  font-weight: 400;
+  margin-top: 2px;
+}
+
+/* Outline-style action buttons */
+.manageActionBtn {
+  background: transparent;
+  border: 1.5px solid rgba(20, 17, 12, 0.3);
+  border-radius: 10px;
+  padding: 4% 5%;
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(13px, 4.5cqw, 16px);
+  font-weight: 600;
+  color: #14110c;
+  cursor: pointer;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: background 0.15s, border-color 0.15s, transform 0.1s;
+  margin-bottom: 3%;
+}
+.manageActionBtn:hover {
+  background: rgba(216, 154, 34, 0.06);
+  border-color: #d89a22;
+}
+.manageActionBtn:active { transform: scale(0.98); }
+.manageActionBtn svg {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+
+/* Help block at bottom */
+.manageHelp {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 4% 0 0;
+  margin-top: 5%;
+  border-top: 1px solid rgba(20, 17, 12, 0.12);
+  cursor: pointer;
+}
+.manageHelpIcon {
+  width: 36px;
+  height: 36px;
+  border: 1.5px solid #d89a22;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+  color: #d89a22;
+}
+.manageHelpIcon svg {
+  width: 18px;
+  height: 18px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.manageHelpText {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(11px, 4cqw, 13px);
+  color: #14110c;
+  line-height: 1.4;
+}
+.manageHelpText strong { font-weight: 600; display: block; }
+
+/* Bottom nav — 3 tabs */
+.manageNav {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgba(20, 17, 12, 0.12);
+  padding: 2% 0 3%;
+  margin-top: auto;
+  flex-shrink: 0;
+}
+.manageNavBtn {
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 5px;
+  padding: 8px 0 2px;
+  color: rgba(20, 17, 12, 0.55);
+  transition: color 0.15s;
+  position: relative;
+}
+.manageNavBtn:hover { color: #14110c; }
+.manageNavBtn svg {
+  width: 24px;
+  height: 24px;
+  stroke: currentColor;
+  stroke-width: 1.8;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  fill: none;
+}
+.manageNavBtnLabel {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(11px, 3.8cqw, 13px);
+  font-weight: 500;
+  letter-spacing: 0.02em;
+}
+.manageNavBtn--active { color: #d89a22; }
+.manageNavBtn--active::after {
   content: "";
   position: absolute;
   top: -1px;

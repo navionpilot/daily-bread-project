@@ -1,7 +1,8 @@
-DAILY BREAD PROJECT - Impact Screen Update
+DAILY BREAD PROJECT - Manage Giving Screen Update (FINAL!)
 
-Replaces the image-based Your Impact screen with a fully coded version.
+This is the LAST screen to convert from image to code.
+After this update, every screen in the app is fully coded!
 
 FILES IN THIS ZIP:
-  app/impact/page.tsx    - coded impact (replaces existing)
-  app/globals.css        - adds impact styles (replaces existing)
+  app/manage/page.tsx    - coded manage screen (replaces existing)
+  app/globals.css        - adds manage styles (replaces existing)
