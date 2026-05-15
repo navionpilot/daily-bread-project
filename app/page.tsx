@@ -3,9 +3,9 @@
 import { useRouter } from "next/navigation";
 
 /**
- * Homepage — the first screen any visitor sees at dailybreadproject.org.
- * Start screen with Mafutseni logo, title, tagline, CTA button, sponsor
- * info, and Fellowship Baptist Church badge at the bottom.
+ * Homepage — first screen visitors see at dailybreadproject.org.
+ * Mafutseni logo, title, tagline, CTA button, and Fellowship Baptist
+ * Church badge at the bottom.
  */
 
 export default function HomePage() {
@@ -52,9 +52,9 @@ export default function HomePage() {
             </div>
 
             <div className="startTagline">
-              HELP FEED
+              CARE FOR
               <br />
-              TODAY&apos;S TABLE
+              TODAY&apos;S CHILDREN
             </div>
 
             <div className="startCtaWrap">
@@ -72,7 +72,7 @@ export default function HomePage() {
                 Mafutseni Care Point · Eswatini
               </span>
               <span className="startSponsorSecondary">
-                Sponsored by{" "}
+                Supported by{" "}
                 <span className="startSponsorBrand">
                   Fellowship Baptist Church
                 </span>{" "}

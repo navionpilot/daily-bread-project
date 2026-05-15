@@ -3,12 +3,8 @@
 import { useRouter } from "next/navigation";
 
 /**
- * Welcome to the Daily Bread Family — confirmation screen
- * shown after a partner completes signup.
- *
- * Updated: now cream background (matches other screens) and broader
- * "supporting" wording (was "feeding" — reflects the full mission of
- * food, shelter, supplies, and care).
+ * Welcome to the Daily Bread Family — confirmation screen.
+ * Button updated to "VIEW TODAY'S CARE" to match the unified brand wording.
  */
 
 export default function WelcomePage() {
@@ -72,7 +68,7 @@ export default function WelcomePage() {
               className="welcomeCtaBtn"
               onClick={() => router.push("/dashboard")}
             >
-              VIEW TODAY&apos;S TABLE
+              VIEW TODAY&apos;S CARE
             </button>
 
             <img

@@ -1,5 +1,5 @@
 /* ================================================================
-   Daily Bread Project — Global Styles  (v14 — ALL SCREENS CODED)
+   Daily Bread Project — Global Styles  (v15 — unified "Today's Care" branding + bigger home logo)
    ================================================================ */
 
 * { box-sizing: border-box; }
@@ -385,7 +385,7 @@ button.appHotspot, .appHotspot {
 }
 
 .startTopLogo {
-  width: 48%;
+  width: 58%;
   height: auto;
   object-fit: contain;
   margin-bottom: 2%;

@@ -3,14 +3,9 @@
 import { useRouter, usePathname } from "next/navigation";
 
 /**
- * Today's Table — main dashboard showing the daily support progress.
- *
- * Fully coded — sharp at any resolution.
- *
- * The numbers (487 / 500 / 97%) are currently hardcoded.
- * When Supabase is wired up, they'll come from the live `meal_counts`
- * (renamed to "daily support count" conceptually) table and update
- * a few times per day.
+ * Today's Care — main dashboard showing daily support progress.
+ * Title updated from "TODAY'S TABLE" to "TODAY'S CARE" to match
+ * the unified brand wording.
  */
 
 const SUPPORTED = 487;
@@ -18,7 +13,6 @@ const GOAL = 500;
 const PERCENT = Math.round((SUPPORTED / GOAL) * 100);
 const REMAINING = GOAL - SUPPORTED;
 
-// Ring math: circumference = 2 * pi * r, where r = 42 in our viewBox
 const CIRCUMFERENCE = 2 * Math.PI * 42;
 const DASH_OFFSET = CIRCUMFERENCE * (1 - SUPPORTED / GOAL);
 
@@ -31,7 +25,6 @@ export default function DashboardPage() {
       <div className="codedPhone">
         <div className="dashScreen">
 
-          {/* Status bar */}
           <div className="dashStatusBar">
             <span>9:41</span>
             <div className="dashStatusIcons">
@@ -54,10 +47,9 @@ export default function DashboardPage() {
             </div>
           </div>
 
-          {/* Header — title + bell */}
           <div className="dashHeader">
             <div className="dashTitleBlock">
-              <span className="dashTitle">TODAY&apos;S TABLE</span>
+              <span className="dashTitle">TODAY&apos;S CARE</span>
               <span className="dashSubtitle">Today&apos;s progress</span>
             </div>
             <button className="dashBell" aria-label="Notifications">
@@ -70,7 +62,6 @@ export default function DashboardPage() {
 
           <div className="dashContent">
 
-            {/* Circular progress ring */}
             <div className="dashRingWrap">
               <div className="dashRing">
                 <svg className="dashRingSvg" viewBox="0 0 100 100">
@@ -81,7 +72,6 @@ export default function DashboardPage() {
                       <stop offset="100%" stopColor="#2c8a48" />
                     </linearGradient>
                   </defs>
-                  {/* Background ring */}
                   <circle
                     cx="50"
                     cy="50"
@@ -90,7 +80,6 @@ export default function DashboardPage() {
                     stroke="rgba(20, 17, 12, 0.08)"
                     strokeWidth="7"
                   />
-                  {/* Progress ring */}
                   <circle
                     cx="50"
                     cy="50"
@@ -113,7 +102,6 @@ export default function DashboardPage() {
               </div>
             </div>
 
-            {/* Stats list */}
             <div className="dashStats">
               <div className="dashStatRow">
                 <span className="dashStatLabel">Children Needing Care</span>
@@ -131,7 +119,6 @@ export default function DashboardPage() {
 
           </div>
 
-          {/* Bottom nav — 3 tabs */}
           <nav className="dashNav">
             <button
               className={`dashNavBtn${pathname === "/dashboard" ? " dashNavBtn--active" : ""}`}
