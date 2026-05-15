@@ -1,9 +1,9 @@
-DAILY BREAD PROJECT - Checkout Screen Update
+DAILY BREAD PROJECT - Dashboard Screen Update
 
-Replaces the image-based Checkout screen with a fully coded version.
+Replaces the image-based Dashboard with a fully coded version.
 
 FILES IN THIS ZIP:
-  app/checkout/page.tsx  - coded checkout screen (replaces existing)
-  app/globals.css        - adds checkout-screen styles (replaces existing)
+  app/dashboard/page.tsx  - coded dashboard (replaces existing)
+  app/globals.css         - adds dashboard styles (replaces existing)
 
 Instructions in chat with Claude.
