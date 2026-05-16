@@ -4,8 +4,10 @@ import { useRouter } from "next/navigation";
 
 /**
  * Homepage — first screen visitors see at dailybreadproject.org.
- * Mafutseni logo, title, tagline, CTA button, and Fellowship Baptist
- * Church badge at the bottom.
+ *
+ * Mafutseni logo, title, tagline, JOIN THE MISSION button,
+ * Learn More link to adventures.org, footer with website link and
+ * Fellowship Baptist Church badge.
  */
 
 export default function HomePage() {
@@ -52,9 +54,9 @@ export default function HomePage() {
             </div>
 
             <div className="startTagline">
-              CARE FOR
+              Please Help Support
               <br />
-              TODAY&apos;S CHILDREN
+              Mafutseni Care Point - Eswatini
             </div>
 
             <div className="startCtaWrap">
@@ -62,15 +64,27 @@ export default function HomePage() {
                 className="startCtaBtn"
                 onClick={() => router.push("/choose")}
               >
-                <span>JOIN THE MISSION</span>
-                <span className="startCtaArrow">→</span>
+                JOIN THE MISSION
               </button>
             </div>
 
-            <div className="startSponsor">
-              <span className="startSponsorPrimary">
-                Mafutseni Care Point · Eswatini
-              </span>
+            <div className="startLearnMoreWrap">
+              <a
+                className="startLearnMore"
+                href="https://sponsorship.adventures.org/carepoint/mafutseni"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Learn more about the Care Point →
+              </a>
+            </div>
+
+            <div className="startFooter">
+              <div className="startWebsiteWrap">
+                <a className="startWebsite" href="https://dailybreadproject.org">
+                  www.dailybreadproject.org
+                </a>
+              </div>
               <span className="startSponsorSecondary">
                 Supported by{" "}
                 <span className="startSponsorBrand">

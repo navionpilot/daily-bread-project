@@ -1,21 +1,21 @@
-DAILY BREAD PROJECT - Supporters Count + Days Update
+DAILY BREAD PROJECT - Homepage Redesign Update
 
-What changes:
-
-1. DASHBOARD
-   - Now pulls live count of ACTIVE PARTNERS from the database
-   - Label: "CARE POINT SUPPORTERS" (was "CHILDREN SUPPORTED")
-   - Stats: Supporter Goal / Current Supporters / Still Needed
-   - Goal hardcoded to 500 in code (change there if needed)
-   - When Stripe creates a partner, count auto-increments
-
-2. IMPACT
-   - Shows number of DAYS supporting (was "1,461 children")
-   - Placeholder value of "1 Day" until authentication is wired up
-   - Then will calculate from each partner's signup date
+Final homepage layout — what was approved:
+- Logo at 62% width
+- "DAILY BREAD / PROJECT" title (bigger fonts)
+- New tagline: "Please Help Support / Mafutseni Care Point - Eswatini"
+- Bigger gap between PROJECT and tagline
+- "JOIN THE MISSION" button (no arrow, centered text, bigger)
+- Button pushed down with breathing room
+- "Learn more about the Care Point →" link (gold, underlined) directly under button
+  - Opens https://sponsorship.adventures.org/carepoint/mafutseni in new tab
+- Footer anchored at bottom with:
+  - "www.dailybreadproject.org" (now a clickable gold link)
+  - "Supported by Fellowship Baptist Church · Meridian, MS"
+  - Fellowship Baptist Church badge
 
 FILES IN THIS ZIP (2 files):
-  app/dashboard/page.tsx
-  app/impact/page.tsx
+  app/page.tsx          - updated homepage
+  app/globals.css       - updated homepage styles
 
 Instructions in chat with Claude.

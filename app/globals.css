@@ -1,5 +1,5 @@
 /* ================================================================
-   Daily Bread Project — Global Styles  (v16 — Share page added + 4-tab nav)
+   Daily Bread Project — Global Styles  (v17 — homepage redesign)
    ================================================================ */
 
 * { box-sizing: border-box; }
@@ -381,21 +381,23 @@ button.appHotspot, .appHotspot {
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 10% 0 1%;
+  padding: 3% 0 1%;
+  min-height: 0;
 }
 
 .startTopLogo {
-  width: 58%;
+  width: 62%;
   height: auto;
   object-fit: contain;
   margin-bottom: 2%;
+  flex-shrink: 0;
 }
 
 .startTitle { text-align: center; line-height: 1.05; }
 .startTitleBig {
   display: block;
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(30px, 13cqw, 42px);
+  font-size: clamp(32px, 13.5cqw, 44px);
   font-weight: 700;
   letter-spacing: 0.02em;
   color: #14110c;
@@ -404,31 +406,33 @@ button.appHotspot, .appHotspot {
 .startTitleSub {
   display: block;
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(18px, 7.5cqw, 26px);
+  font-size: clamp(18px, 8cqw, 28px);
   font-weight: 500;
   letter-spacing: 0.18em;
   color: #14110c;
-  margin-top: 3%;
+  margin-top: 2%;
 }
 
 .startTagline {
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(13px, 4.8cqw, 17px);
+  font-size: clamp(15px, 5.5cqw, 20px);
   font-weight: 500;
-  letter-spacing: 0.18em;
+  letter-spacing: 0.06em;
   color: #14110c;
   text-align: center;
-  line-height: 1.5;
-  text-transform: uppercase;
-  margin-top: 3%;
+  line-height: 1.4;
+  margin-top: 7%;
   margin-bottom: 3%;
+  flex-shrink: 0;
 }
 
 .startCtaWrap {
-  margin: auto 0;
+  margin-top: 12%;
+  margin-bottom: 4%;
   width: 100%;
   display: flex;
   justify-content: center;
+  flex-shrink: 0;
 }
 .startCtaBtn {
   background: #d89a22;
@@ -437,59 +441,83 @@ button.appHotspot, .appHotspot {
   border-radius: 8px;
   padding: 5% 4%;
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(15px, 5.5cqw, 19px);
+  font-size: clamp(17px, 6cqw, 22px);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
   cursor: pointer;
-  width: 78%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 10px;
-  transition: background 0.15s, transform 0.1s;
+  width: 82%;
+  text-align: center;
+  white-space: nowrap;
   box-shadow: 0 6px 18px rgba(216, 154, 34, 0.4);
+  transition: background 0.15s, transform 0.1s;
 }
-.startCtaArrow { font-size: 1.1em; line-height: 1; }
 .startCtaBtn:hover { background: #c98a18; }
 .startCtaBtn:active { transform: scale(0.97); }
 
-.startSponsor {
+.startFooter {
   width: 100%;
   text-align: center;
   border-top: 1px solid rgba(20, 17, 12, 0.15);
   padding-top: 4%;
-  margin-top: 3%;
   line-height: 1.4;
-}
-.startSponsorPrimary {
-  display: block;
-  font-family: 'Oswald', sans-serif;
-  font-size: clamp(11px, 4cqw, 15px);
-  font-weight: 700;
-  letter-spacing: 0.12em;
-  color: #d89a22;
-  text-transform: uppercase;
-  margin-bottom: 2%;
+  flex-shrink: 0;
+  margin-top: auto;
 }
 .startSponsorSecondary {
   display: block;
   font-family: 'DM Sans', sans-serif;
-  font-size: clamp(10px, 3.5cqw, 13px);
+  font-size: clamp(11px, 4cqw, 14px);
   font-weight: 400;
   color: #5f574b;
   letter-spacing: 0.02em;
+  margin-bottom: 3%;
 }
 .startSponsorBrand { font-weight: 600; color: #14110c; }
 
 /* Fellowship Baptist Church badge at the bottom of the homepage */
 .startFbcBadge {
-  width: 35%;
+  width: 30%;
   height: auto;
   object-fit: contain;
-  margin: 3% auto 0;
+  margin: 2% auto 0;
   display: block;
 }
+
+/* Learn More link directly below the CTA button (homepage) */
+.startLearnMoreWrap {
+  display: flex;
+  justify-content: center;
+  padding: 1% 0 3%;
+  flex-shrink: 0;
+}
+.startLearnMore {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(12px, 4.5cqw, 15px);
+  font-weight: 600;
+  color: #d89a22;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+  text-align: center;
+}
+.startLearnMore:hover { color: #b87f17; }
+
+/* Website link inside the footer (homepage) */
+.startWebsiteWrap {
+  margin-bottom: 4%;
+}
+.startWebsite {
+  font-family: 'DM Sans', sans-serif;
+  font-size: clamp(12px, 4.5cqw, 15px);
+  font-weight: 600;
+  color: #d89a22;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  cursor: pointer;
+}
+.startWebsite:hover { color: #b87f17; }
+
 
 /* ================================================================
    CHOOSE IMPACT SCREEN  (new! — fully coded)
