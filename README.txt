@@ -1,19 +1,12 @@
-DAILY BREAD PROJECT - Share Page Update
+DAILY BREAD PROJECT - Supabase Connection Setup
 
-What's new:
-- NEW PAGE: /share - shows mission statement, Mafutseni logo, QR code, and Share button
-- 4-TAB BOTTOM NAV: Home / Impact / Share / Manage (was 3-tab)
-- All 3 existing nav pages updated to show the new 4-tab nav
+This adds the database connection to your app.
 
-FILES IN THIS ZIP (6 files):
-  app/share/page.tsx                  - NEW Share screen
-  app/dashboard/page.tsx              - updated nav to 4 tabs
-  app/impact/page.tsx                 - updated nav to 4 tabs
-  app/manage/page.tsx                 - updated nav to 4 tabs
-  app/globals.css                     - share styles + 4-tab grid
-  public/assets/qr_code_dbp.png       - NEW QR code image
+FILES IN THIS ZIP (2 files):
+  lib/supabase.ts        - NEW: the database connection client
+  package.json           - UPDATED: adds @supabase/supabase-js package
 
-The QR code links to dailybreadproject.org. The "Share Via..." button
-opens the device's native share menu on mobile or copies the link on desktop.
+After uploading, Vercel will detect the package.json change and
+automatically install the new Supabase dependency during deploy.
 
 Instructions in chat with Claude.
