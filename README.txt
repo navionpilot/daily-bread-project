@@ -1,17 +1,21 @@
-DAILY BREAD PROJECT - SEO / Google Search Setup
+DAILY BREAD PROJECT - Desktop View Scaling Fix
 
-What this does:
-Makes the site discoverable on Google, Bing, and other search engines.
+What changed:
+The site renders as a phone-shaped window in the middle of a dark background.
+On phones, this fills the whole screen (perfect). On desktop, it was stuck
+at only 300px wide — looking tiny on a big monitor.
 
-FILES IN THIS ZIP (3 files):
+This update makes the phone view scale up based on screen size:
 
-  public/robots.txt        - tells crawlers they can index the site
-  public/sitemap.xml       - lists pages for Google to find
-  app/layout.tsx           - upgraded SEO metadata (keywords, social cards, etc.)
+- Phone (< 520px wide):    Fills entire screen (no change - was already correct)
+- Default desktop (small): 360px wide (up from 300)
+- Tablet/medium desktop:   420px wide
+- Large desktop (1200px+): 460px wide
 
-After uploading these to GitHub, the next step is to register your site
-with Google Search Console (free) - Claude will walk you through this.
+The aspect ratio stays the same (phone-shape) but the phone is much more
+prominent and easy to read on a computer screen.
 
-Once registered, Google typically starts indexing within 2-7 days.
+FILES IN THIS ZIP (1 file):
+  app/globals.css       - just CSS
 
 Instructions in chat with Claude.

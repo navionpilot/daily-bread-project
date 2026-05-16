@@ -1,5 +1,5 @@
 /* ================================================================
-   Daily Bread Project — Global Styles  (v24 — PWA support)
+   Daily Bread Project — Global Styles  (v25 — desktop phone scaling)
    ================================================================ */
 
 /* ================================================================
@@ -236,10 +236,10 @@ button.appHotspot, .appHotspot {
 }
 
 .codedPhone {
-  width: 300px;
+  width: 360px;
   aspect-ratio: 191 / 430;
   max-width: 90vw;
-  max-height: min(85vh, 670px);
+  max-height: min(90vh, 810px);
   background: #111;
   border-radius: 38px;
   padding: 7px;
@@ -248,6 +248,22 @@ button.appHotspot, .appHotspot {
     0 30px 60px rgba(0, 0, 0, 0.5);
   overflow: hidden;
   container-type: inline-size;
+}
+
+/* On medium desktop screens, make the phone larger */
+@media (min-width: 768px) and (orientation: landscape) {
+  .codedPhone {
+    width: 420px;
+    max-height: min(92vh, 945px);
+  }
+}
+
+/* On large desktop screens, even bigger */
+@media (min-width: 1200px) and (orientation: landscape) {
+  .codedPhone {
+    width: 460px;
+    max-height: min(92vh, 1035px);
+  }
 }
 
 @media (max-width: 520px) {
