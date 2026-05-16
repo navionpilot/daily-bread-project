@@ -1,24 +1,66 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
+import { supabase } from "@/lib/supabase";
 
 /**
  * Today's Care — main dashboard showing daily support progress.
- * Title updated from "TODAY'S TABLE" to "TODAY'S CARE" to match
- * the unified brand wording.
+ *
+ * Pulls the live count from Supabase's `support_counts` table.
+ * If the database is unreachable, falls back to default values
+ * so the UI still renders.
  */
 
-const SUPPORTED = 487;
-const GOAL = 500;
-const PERCENT = Math.round((SUPPORTED / GOAL) * 100);
-const REMAINING = GOAL - SUPPORTED;
-
+const FALLBACK_SUPPORTED = 487;
+const FALLBACK_GOAL = 500;
 const CIRCUMFERENCE = 2 * Math.PI * 42;
-const DASH_OFFSET = CIRCUMFERENCE * (1 - SUPPORTED / GOAL);
 
 export default function DashboardPage() {
   const router = useRouter();
   const pathname = usePathname();
+
+  const [supported, setSupported] = useState<number>(FALLBACK_SUPPORTED);
+  const [goal, setGoal] = useState<number>(FALLBACK_GOAL);
+
+  useEffect(() => {
+    async function fetchTodayCount() {
+      try {
+        const today = new Date().toISOString().slice(0, 10);
+
+        // Try today's row first
+        let { data } = await supabase
+          .from("support_counts")
+          .select("*")
+          .eq("count_date", today)
+          .maybeSingle();
+
+        // Fall back to most recent if today isn't there
+        if (!data) {
+          const { data: recent } = await supabase
+            .from("support_counts")
+            .select("*")
+            .order("count_date", { ascending: false })
+            .limit(1)
+            .maybeSingle();
+          data = recent;
+        }
+
+        if (data) {
+          setSupported(data.children_supported);
+          setGoal(data.children_needed);
+        }
+      } catch (err) {
+        console.error("Could not fetch support count:", err);
+      }
+    }
+
+    fetchTodayCount();
+  }, []);
+
+  const percent = Math.round((supported / goal) * 100);
+  const remaining = Math.max(0, goal - supported);
+  const dashOffset = CIRCUMFERENCE * (1 - supported / goal);
 
   return (
     <main className="codedAppStage">
@@ -89,15 +131,16 @@ export default function DashboardPage() {
                     strokeWidth="7"
                     strokeLinecap="round"
                     strokeDasharray={CIRCUMFERENCE}
-                    strokeDashoffset={DASH_OFFSET}
+                    strokeDashoffset={dashOffset}
+                    style={{ transition: "stroke-dashoffset 0.8s ease-out" }}
                   />
                 </svg>
                 <div className="dashRingCenter">
                   <span className="dashRingLabel">CHILDREN SUPPORTED</span>
                   <span className="dashRingNumber">
-                    {SUPPORTED} <span className="total">/ {GOAL}</span>
+                    {supported.toLocaleString()} <span className="total">/ {goal.toLocaleString()}</span>
                   </span>
-                  <span className="dashRingFunded">{PERCENT}% FUNDED</span>
+                  <span className="dashRingFunded">{percent}% FUNDED</span>
                 </div>
               </div>
             </div>
@@ -105,15 +148,15 @@ export default function DashboardPage() {
             <div className="dashStats">
               <div className="dashStatRow">
                 <span className="dashStatLabel">Children Needing Care</span>
-                <span className="dashStatValue">{GOAL}</span>
+                <span className="dashStatValue">{goal.toLocaleString()}</span>
               </div>
               <div className="dashStatRow">
                 <span className="dashStatLabel">Children Supported</span>
-                <span className="dashStatValue">{SUPPORTED}</span>
+                <span className="dashStatValue">{supported.toLocaleString()}</span>
               </div>
               <div className="dashStatRow">
                 <span className="dashStatLabel">Still Needing Support</span>
-                <span className="dashStatValue">{REMAINING}</span>
+                <span className="dashStatValue">{remaining.toLocaleString()}</span>
               </div>
             </div>
 

@@ -1,12 +1,14 @@
-DAILY BREAD PROJECT - Supabase Connection Setup
+DAILY BREAD PROJECT - Live Dashboard Update
 
-This adds the database connection to your app.
+Wires the dashboard to pull LIVE data from Supabase.
 
-FILES IN THIS ZIP (2 files):
-  lib/supabase.ts        - NEW: the database connection client
-  package.json           - UPDATED: adds @supabase/supabase-js package
+What changes:
+- Dashboard reads from the `support_counts` table on every page load
+- "487 / 500" is no longer hardcoded - it comes from your database
+- Change the number in Supabase, refresh the dashboard, see it update
+- Falls back to 487/500 if the database is offline
 
-After uploading, Vercel will detect the package.json change and
-automatically install the new Supabase dependency during deploy.
+FILES IN THIS ZIP (1 file):
+  app/dashboard/page.tsx    - updated dashboard with Supabase fetch
 
 Instructions in chat with Claude.
