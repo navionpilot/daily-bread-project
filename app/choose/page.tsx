@@ -59,9 +59,7 @@ export default function ChoosePage() {
             <div className="chooseTitle">
               BECOME A
               <br />
-              DAILY BREAD
-              <br />
-              PARTNER
+              DAILY BREAD PARTNER
             </div>
             <div className="chooseSubtitle">Choose your daily impact</div>
 

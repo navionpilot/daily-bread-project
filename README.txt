@@ -1,17 +1,13 @@
-DAILY BREAD PROJECT - Choose Tier Page Polish (v6)
+DAILY BREAD PROJECT - Choose Tier v7 Final
 
-What changed from v5:
-- Title now bigger AND uses intentional 3-line break:
-    "BECOME A
-     DAILY BREAD  
-     PARTNER"
-- Content shifted up so footer is fully visible
-- More space between tier buttons (gap 4% → 6%)
-- Logo slightly smaller (50% → 40%) to make room for footer
-- Logo padding tightened
+What changed from v6:
+- Title back to 2 lines: "BECOME A / DAILY BREAD PARTNER"
+- Title max font reduced 34px → 28px (so it fits on 2 lines on iPhones)
+- Button gap fixed: was 6% (didn't render visibly), now clamp(12-18px) 
+  - Real visible vertical space between the colored tier buttons
 
 FILES IN THIS ZIP (2 files):
-  app/choose/page.tsx   - updated with 3-line title
-  app/globals.css       - all CSS adjustments
+  app/choose/page.tsx   - 2-line title
+  app/globals.css       - updated font + gap
 
 Instructions in chat with Claude.

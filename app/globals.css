@@ -1,5 +1,5 @@
 /* ================================================================
-   Daily Bread Project — Global Styles  (v20 — choose page v6 polish)
+   Daily Bread Project — Global Styles  (v21 — choose page v7 final)
    ================================================================ */
 
 * { box-sizing: border-box; }
@@ -591,10 +591,10 @@ button.appHotspot, .appHotspot {
   text-align: center;
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  font-size: clamp(24px, 10cqw, 34px);
-  letter-spacing: 0.04em;
+  font-size: clamp(20px, 8.5cqw, 28px);
+  letter-spacing: 0.03em;
   color: #14110c;
-  line-height: 1.05;
+  line-height: 1.1;
 }
 .chooseSubtitle {
   text-align: center;
@@ -609,7 +609,7 @@ button.appHotspot, .appHotspot {
 .tierList {
   display: flex;
   flex-direction: column;
-  gap: 6%;
+  gap: clamp(12px, 4.5cqw, 18px);
 }
 .tierBtn {
   display: flex;
