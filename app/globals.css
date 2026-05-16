@@ -1,5 +1,5 @@
 /* ================================================================
-   Daily Bread Project — Global Styles  (v22 — share page polish)
+   Daily Bread Project — Global Styles  (v23 — share page compression)
    ================================================================ */
 
 * { box-sizing: border-box; }
@@ -1557,22 +1557,22 @@ button.appHotspot, .appHotspot {
 }
 
 .shareHeader {
-  padding: 6% 7% 2%;
+  padding: 4% 7% 1%;
   flex-shrink: 0;
 }
 .shareTitle {
   font-family: 'Oswald', sans-serif;
   font-weight: 700;
-  font-size: clamp(24px, 10cqw, 34px);
+  font-size: clamp(22px, 9cqw, 30px);
   letter-spacing: 0.04em;
   color: #14110c;
   line-height: 1;
 }
 .shareSubtitle {
   font-family: 'DM Sans', sans-serif;
-  font-size: clamp(13px, 5cqw, 16px);
+  font-size: clamp(12px, 4.5cqw, 14px);
   color: #5f574b;
-  margin-top: 4px;
+  margin-top: 3px;
 }
 
 .shareContent {
@@ -1586,19 +1586,19 @@ button.appHotspot, .appHotspot {
 }
 
 .shareLogo {
-  width: 45%;
+  width: 30%;
   height: auto;
   object-fit: contain;
-  margin: 1% 0 3%;
+  margin: 0 0 2%;
 }
 
 .shareMission {
   text-align: center;
   font-family: 'DM Sans', sans-serif;
-  font-size: clamp(13px, 4.6cqw, 16px);
-  line-height: 1.5;
+  font-size: clamp(11px, 4cqw, 14px);
+  line-height: 1.45;
   color: #14110c;
-  margin-bottom: 4%;
+  margin-bottom: 3%;
 }
 .shareMission strong {
   color: #d89a22;
@@ -1610,8 +1610,8 @@ button.appHotspot, .appHotspot {
   border: none;
   border-radius: 0;
   padding: 0;
-  margin-bottom: 2%;
-  width: 55%;
+  margin-bottom: 1%;
+  width: 42%;
   aspect-ratio: 1;
   display: flex;
   align-items: center;
@@ -1626,7 +1626,7 @@ button.appHotspot, .appHotspot {
 
 .shareUrl {
   font-family: 'DM Sans', sans-serif;
-  font-size: clamp(13px, 4.6cqw, 15px);
+  font-size: clamp(12px, 4.4cqw, 14px);
   font-weight: 600;
   color: #d89a22;
   margin-bottom: 2%;
@@ -1638,9 +1638,9 @@ button.appHotspot, .appHotspot {
   color: #ffffff;
   border: none;
   border-radius: 8px;
-  padding: 4.5% 5%;
+  padding: 3.5% 5%;
   font-family: 'Oswald', sans-serif;
-  font-size: clamp(15px, 5.5cqw, 19px);
+  font-size: clamp(14px, 5cqw, 17px);
   font-weight: 700;
   letter-spacing: 0.12em;
   text-transform: uppercase;
@@ -1651,14 +1651,14 @@ button.appHotspot, .appHotspot {
   justify-content: center;
   gap: 10px;
   box-shadow: 0 6px 18px rgba(216, 154, 34, 0.35);
-  margin-bottom: 4%;
+  margin-bottom: 2%;
   transition: background 0.15s, transform 0.1s;
 }
 .shareBtn:hover { background: #c98a18; }
 .shareBtn:active { transform: scale(0.98); }
 .shareBtn svg {
-  width: 20px;
-  height: 20px;
+  width: 18px;
+  height: 18px;
   stroke: currentColor;
   stroke-width: 2;
   stroke-linecap: round;
