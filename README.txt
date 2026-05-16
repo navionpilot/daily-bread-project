@@ -1,21 +1,13 @@
-DAILY BREAD PROJECT - Homepage Redesign Update
+DAILY BREAD PROJECT - Choose Tier Page Update
 
-Final homepage layout — what was approved:
-- Logo at 62% width
-- "DAILY BREAD / PROJECT" title (bigger fonts)
-- New tagline: "Please Help Support / Mafutseni Care Point - Eswatini"
-- Bigger gap between PROJECT and tagline
-- "JOIN THE MISSION" button (no arrow, centered text, bigger)
-- Button pushed down with breathing room
-- "Learn more about the Care Point →" link (gold, underlined) directly under button
-  - Opens https://sponsorship.adventures.org/carepoint/mafutseni in new tab
-- Footer anchored at bottom with:
-  - "www.dailybreadproject.org" (now a clickable gold link)
-  - "Supported by Fellowship Baptist Church · Meridian, MS"
-  - Fellowship Baptist Church badge
+Final Choose Tier polish from v5 preview:
+- Title slightly smaller, fits on 2 lines: "BECOME A / DAILY BREAD PARTNER"
+- Tier buttons ~30% shorter (less tall)
+- Mafutseni logo bumped from 38% to 50%
+- "Back to overview" chip renamed to just "Back"
 
 FILES IN THIS ZIP (2 files):
-  app/page.tsx          - updated homepage
-  app/globals.css       - updated homepage styles
+  app/choose/page.tsx   - updated Choose tier page
+  app/globals.css       - updated CSS
 
 Instructions in chat with Claude.

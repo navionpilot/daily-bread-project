@@ -4,33 +4,23 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 
 /**
- * Choose Your Daily Impact — the partner picks a tier ($1/$2/$3 per day).
+ * Choose Tier — partners pick $1/$2/$3 per day.
  *
- * Fully coded — sharp at any resolution.
- *
- * Each button currently navigates to /checkout. Later, when Stripe is
- * wired up, we'll pass the chosen tier as a query parameter so the
- * checkout knows which price to charge.
+ * Each tier button passes the daily amount to /checkout via query string.
+ * Stripe will charge daily × 30 (~ monthly billing) once wired up.
  */
 
-type Tier = {
-  daily: number;
-  monthly: number;
-  colorClass: "green" | "gold" | "red";
-};
-
-const TIERS: Tier[] = [
-  { daily: 1, monthly: 30, colorClass: "green" },
-  { daily: 2, monthly: 60, colorClass: "gold" },
-  { daily: 3, monthly: 90, colorClass: "red" },
+const TIERS = [
+  { daily: 1, monthly: 30, color: "green" },
+  { daily: 2, monthly: 60, color: "gold" },
+  { daily: 3, monthly: 90, color: "red" },
 ];
 
 export default function ChoosePage() {
   const router = useRouter();
 
-  const selectTier = (tier: Tier) => {
-    // Later wire-up: router.push(`/checkout?amount=${tier.daily}`)
-    router.push("/checkout");
+  const handleTierClick = (daily: number) => {
+    router.push(`/checkout?tier=${daily}`);
   };
 
   return (
@@ -38,7 +28,6 @@ export default function ChoosePage() {
       <div className="codedPhone">
         <div className="chooseScreen">
 
-          {/* Fake iPhone status bar (hidden on real mobile via CSS) */}
           <div className="chooseStatusBar">
             <span>9:41</span>
             <div className="chooseStatusIcons">
@@ -61,6 +50,10 @@ export default function ChoosePage() {
             </div>
           </div>
 
+          <div className="chooseBackRow">
+            <Link className="chooseBack" href="/">← Back</Link>
+          </div>
+
           <div className="chooseContent">
 
             <div className="chooseTitle">
@@ -74,15 +67,17 @@ export default function ChoosePage() {
               {TIERS.map((tier) => (
                 <button
                   key={tier.daily}
-                  className={`tierBtn tierBtn--${tier.colorClass}`}
-                  onClick={() => selectTier(tier)}
-                  aria-label={`Give $${tier.daily} per day — $${tier.monthly} per month`}
+                  className={`tierBtn tierBtn--${tier.color}`}
+                  onClick={() => handleTierClick(tier.daily)}
+                  aria-label={`${tier.daily} dollar per day, ${tier.monthly} dollars per month`}
                 >
                   <div className="tierBtnTextWrap">
                     <span className="tierBtnDaily">
                       ${tier.daily} <span className="perDay">/ day</span>
                     </span>
-                    <span className="tierBtnMonthly">${tier.monthly} / month</span>
+                    <span className="tierBtnMonthly">
+                      ${tier.monthly} / month
+                    </span>
                   </div>
                   <div className="tierBtnArrow">
                     <svg viewBox="0 0 24 24">
@@ -121,10 +116,6 @@ export default function ChoosePage() {
           </div>
         </div>
       </div>
-
-      <Link href="/" className="appBackHome">
-        ← Back to overview
-      </Link>
     </main>
   );
 }
