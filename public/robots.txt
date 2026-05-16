@@ -1,0 +1,13 @@
+# Daily Bread Project - robots.txt
+# Tells search engine crawlers (Google, Bing, etc.) what they can access.
+# https://www.robotstxt.org/
+
+User-agent: *
+Allow: /
+
+# Don't waste crawler time on Next.js build artifacts
+Disallow: /_next/
+Disallow: /api/
+
+# Point crawlers to the sitemap
+Sitemap: https://dailybreadproject.org/sitemap.xml
