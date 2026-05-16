@@ -1,13 +1,20 @@
-DAILY BREAD PROJECT - Choose Tier Page Update
+DAILY BREAD PROJECT - Homepage Spacing Fix
 
-Final Choose Tier polish from v5 preview:
-- Title slightly smaller, fits on 2 lines: "BECOME A / DAILY BREAD PARTNER"
-- Tier buttons ~30% shorter (less tall)
-- Mafutseni logo bumped from 38% to 50%
-- "Back to overview" chip renamed to just "Back"
+What changed:
+Tightened the homepage spacing so the Fellowship Baptist Church 
+badge isn't cut off at the bottom of phone screens (especially in
+Safari where the URL bar takes up extra space).
 
-FILES IN THIS ZIP (2 files):
-  app/choose/page.tsx   - updated Choose tier page
-  app/globals.css       - updated CSS
+Specifically:
+- Top padding of content area: 3% → 2%
+- Margin above CTA button: 12% → 7%
+- Margin below CTA button: 4% → 2%
+- Learn More link padding: tightened
+- Footer padding tightened
+- FBC badge size: 30% → 26% (slightly smaller)
+- FBC badge margin: tightened
+
+FILES IN THIS ZIP (1 file):
+  app/globals.css       - updated CSS only (HTML unchanged)
 
 Instructions in chat with Claude.
