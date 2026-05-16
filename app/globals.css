@@ -1,6 +1,43 @@
 /* ================================================================
-   Daily Bread Project — Global Styles  (v23 — share page compression)
+   Daily Bread Project — Global Styles  (v24 — PWA support)
    ================================================================ */
+
+/* ================================================================
+   PWA STANDALONE MODE  (when launched from home screen)
+   ================================================================
+   When the app is installed and launched as a PWA, it runs full-screen
+   without the browser chrome. We need to respect the iPhone notch
+   and home indicator using safe-area-insets.
+*/
+
+@media all and (display-mode: standalone) {
+  body {
+    /* Use safe-area insets so content doesn't go under notch/home bar */
+    padding-top: env(safe-area-inset-top);
+    padding-bottom: env(safe-area-inset-bottom);
+    padding-left: env(safe-area-inset-left);
+    padding-right: env(safe-area-inset-right);
+    background: #f4ead8;
+  }
+
+  /* Hide the simulated phone status bar (9:41) inside each screen,
+     since the real iOS status bar is already shown above. */
+  .startStatusBar,
+  .chooseStatusBar,
+  .checkoutStatusBar,
+  .welcomeStatusBar,
+  .dashStatusBar,
+  .impactStatusBar,
+  .shareStatusBar,
+  .manageStatusBar {
+    display: none !important;
+  }
+}
+
+/* Make sure HTML element has the brand color so any whitespace shows cream */
+html { background: #f4ead8; }
+
+
 
 * { box-sizing: border-box; }
 

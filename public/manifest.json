@@ -1,0 +1,32 @@
+{
+  "name": "Daily Bread Project",
+  "short_name": "Daily Bread",
+  "description": "Help support Mafutseni Care Point in Eswatini through daily micro-giving.",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4ead8",
+  "theme_color": "#f4ead8",
+  "icons": [
+    {
+      "src": "/app-icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/app-icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/app-icon-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "categories": ["charity", "lifestyle", "social"],
+  "lang": "en-US"
+}
