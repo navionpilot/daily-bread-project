@@ -1,14 +1,21 @@
-DAILY BREAD PROJECT - Live Dashboard Update
-
-Wires the dashboard to pull LIVE data from Supabase.
+DAILY BREAD PROJECT - Supporters Count + Days Update
 
 What changes:
-- Dashboard reads from the `support_counts` table on every page load
-- "487 / 500" is no longer hardcoded - it comes from your database
-- Change the number in Supabase, refresh the dashboard, see it update
-- Falls back to 487/500 if the database is offline
 
-FILES IN THIS ZIP (1 file):
-  app/dashboard/page.tsx    - updated dashboard with Supabase fetch
+1. DASHBOARD
+   - Now pulls live count of ACTIVE PARTNERS from the database
+   - Label: "CARE POINT SUPPORTERS" (was "CHILDREN SUPPORTED")
+   - Stats: Supporter Goal / Current Supporters / Still Needed
+   - Goal hardcoded to 500 in code (change there if needed)
+   - When Stripe creates a partner, count auto-increments
+
+2. IMPACT
+   - Shows number of DAYS supporting (was "1,461 children")
+   - Placeholder value of "1 Day" until authentication is wired up
+   - Then will calculate from each partner's signup date
+
+FILES IN THIS ZIP (2 files):
+  app/dashboard/page.tsx
+  app/impact/page.tsx
 
 Instructions in chat with Claude.

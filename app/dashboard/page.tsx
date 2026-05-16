@@ -5,62 +5,53 @@ import { useEffect, useState } from "react";
 import { supabase } from "@/lib/supabase";
 
 /**
- * Today's Care — main dashboard showing daily support progress.
+ * Today's Care — main dashboard showing community growth.
  *
- * Pulls the live count from Supabase's `support_counts` table.
- * If the database is unreachable, falls back to default values
- * so the UI still renders.
+ * The count is the number of ACTIVE partners (Care Point Supporters).
+ * Pulled live from the `partners` table on every page load.
+ *
+ * When Stripe is wired up, every new successful signup adds a row to
+ * `partners` with status='active' — and this dashboard count goes up
+ * automatically. No manual updates needed.
  */
 
-const FALLBACK_SUPPORTED = 487;
-const FALLBACK_GOAL = 500;
+// Hardcoded goal — change here if needed. (Could move to Supabase config later.)
+const SUPPORTER_GOAL = 500;
 const CIRCUMFERENCE = 2 * Math.PI * 42;
 
 export default function DashboardPage() {
   const router = useRouter();
   const pathname = usePathname();
 
-  const [supported, setSupported] = useState<number>(FALLBACK_SUPPORTED);
-  const [goal, setGoal] = useState<number>(FALLBACK_GOAL);
+  const [supporters, setSupporters] = useState<number>(0);
 
   useEffect(() => {
-    async function fetchTodayCount() {
+    async function fetchSupporterCount() {
       try {
-        const today = new Date().toISOString().slice(0, 10);
+        // Count active partners in the database.
+        const { count, error } = await supabase
+          .from("partners")
+          .select("*", { count: "exact", head: true })
+          .eq("status", "active");
 
-        // Try today's row first
-        let { data } = await supabase
-          .from("support_counts")
-          .select("*")
-          .eq("count_date", today)
-          .maybeSingle();
-
-        // Fall back to most recent if today isn't there
-        if (!data) {
-          const { data: recent } = await supabase
-            .from("support_counts")
-            .select("*")
-            .order("count_date", { ascending: false })
-            .limit(1)
-            .maybeSingle();
-          data = recent;
-        }
-
-        if (data) {
-          setSupported(data.children_supported);
-          setGoal(data.children_needed);
+        if (!error && count !== null) {
+          setSupporters(count);
         }
       } catch (err) {
-        console.error("Could not fetch support count:", err);
+        console.error("Could not fetch supporter count:", err);
+        // Fallback: just leave at 0
       }
     }
 
-    fetchTodayCount();
+    fetchSupporterCount();
   }, []);
 
-  const percent = Math.round((supported / goal) * 100);
-  const remaining = Math.max(0, goal - supported);
-  const dashOffset = CIRCUMFERENCE * (1 - supported / goal);
+  const goal = SUPPORTER_GOAL;
+  const percent = goal > 0 ? Math.round((supporters / goal) * 100) : 0;
+  const remaining = Math.max(0, goal - supporters);
+  const dashOffset = goal > 0
+    ? CIRCUMFERENCE * (1 - Math.min(supporters / goal, 1))
+    : CIRCUMFERENCE;
 
   return (
     <main className="codedAppStage">
@@ -136,9 +127,9 @@ export default function DashboardPage() {
                   />
                 </svg>
                 <div className="dashRingCenter">
-                  <span className="dashRingLabel">CHILDREN SUPPORTED</span>
+                  <span className="dashRingLabel">CARE POINT SUPPORTERS</span>
                   <span className="dashRingNumber">
-                    {supported.toLocaleString()} <span className="total">/ {goal.toLocaleString()}</span>
+                    {supporters.toLocaleString()} <span className="total">/ {goal.toLocaleString()}</span>
                   </span>
                   <span className="dashRingFunded">{percent}% FUNDED</span>
                 </div>
@@ -147,15 +138,15 @@ export default function DashboardPage() {
 
             <div className="dashStats">
               <div className="dashStatRow">
-                <span className="dashStatLabel">Children Needing Care</span>
+                <span className="dashStatLabel">Supporter Goal</span>
                 <span className="dashStatValue">{goal.toLocaleString()}</span>
               </div>
               <div className="dashStatRow">
-                <span className="dashStatLabel">Children Supported</span>
-                <span className="dashStatValue">{supported.toLocaleString()}</span>
+                <span className="dashStatLabel">Current Supporters</span>
+                <span className="dashStatValue">{supporters.toLocaleString()}</span>
               </div>
               <div className="dashStatRow">
-                <span className="dashStatLabel">Still Needing Support</span>
+                <span className="dashStatLabel">Still Needed</span>
                 <span className="dashStatValue">{remaining.toLocaleString()}</span>
               </div>
             </div>

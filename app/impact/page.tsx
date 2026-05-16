@@ -1,26 +1,34 @@
 "use client";
 
 import { useRouter, usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 /**
  * Your Impact — personalized stats screen for the logged-in partner.
  *
- * Shows the partner's cumulative contribution: "Because of YOU, X children
- * supported this month." Includes a share button for social sharing.
+ * Shows the number of DAYS the partner has been supporting the mission.
  *
- * Number is hardcoded for now. When Supabase is wired up, it'll come
- * from the partner's giving history.
+ * Currently uses a placeholder value (1 day) because we don't have
+ * authentication yet — we can't tell which partner is viewing this page.
+ *
+ * When auth + Stripe are wired up:
+ *   1. Get the logged-in partner's row from `partners`
+ *   2. Calculate days from partners.created_at to today
+ *   3. Display that number
  */
-
-const PARTNER_CONTRIBUTION = 1461;
 
 export default function ImpactPage() {
   const router = useRouter();
   const pathname = usePathname();
 
+  // Placeholder. Replace with real calc once auth is wired up:
+  //   const daysSupported = Math.floor(
+  //     (Date.now() - new Date(partner.created_at).getTime()) / (1000*60*60*24)
+  //   );
+  const [daysSupported] = useState<number>(1);
+
   const handleShare = () => {
-    // Later: real share functionality (Web Share API or copy-link)
-    // For now, just no-op
+    router.push("/share");
   };
 
   return (
@@ -58,12 +66,14 @@ export default function ImpactPage() {
           <div className="impactContent">
 
             <div className="impactStatCard">
-              <span className="impactStatLine1">You&apos;ve provided</span>
+              <span className="impactStatLine1">You&apos;ve been supporting</span>
               <span className="impactStatNumber">
-                {PARTNER_CONTRIBUTION.toLocaleString()}
+                {daysSupported.toLocaleString()}
               </span>
-              <span className="impactStatLabel">Children Supported</span>
-              <span className="impactStatPeriod">This Month</span>
+              <span className="impactStatLabel">
+                {daysSupported === 1 ? "Day" : "Days"}
+              </span>
+              <span className="impactStatPeriod">as a Care Point Supporter</span>
             </div>
 
             <p className="impactMessage">
@@ -78,7 +88,6 @@ export default function ImpactPage() {
 
           </div>
 
-          {/* Bottom nav — 3 tabs */}
           <nav className="impactNav">
             <button
               className={`impactNavBtn${pathname === "/dashboard" ? " impactNavBtn--active" : ""}`}
