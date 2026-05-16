@@ -1,21 +1,18 @@
-DAILY BREAD PROJECT - Desktop View Scaling Fix
+DAILY BREAD PROJECT - Share Page v6
 
-What changed:
-The site renders as a phone-shaped window in the middle of a dark background.
-On phones, this fills the whole screen (perfect). On desktop, it was stuck
-at only 300px wide — looking tiny on a big monitor.
-
-This update makes the phone view scale up based on screen size:
-
-- Phone (< 520px wide):    Fills entire screen (no change - was already correct)
-- Default desktop (small): 360px wide (up from 300)
-- Tablet/medium desktop:   420px wide
-- Large desktop (1200px+): 460px wide
-
-The aspect ratio stays the same (phone-shape) but the phone is much more
-prominent and easy to read on a computer screen.
+What changed (more breathing room throughout):
+- Header padding 4% → 8% (title sits lower on page)
+- Logo: 30% → 38% (bigger)
+- Logo bottom margin: 2% → 4%
+- Mission text font: ~12-14px → ~13-16px (more readable)
+- Mission line-height: 1.45 → 1.5
+- Mission bottom margin: 3% → 5%
+- QR bottom margin: 1% → 3%
+- URL bottom margin: 2% → 4%
+- Button padding: 3.5% → 4%
+- Button bottom margin: 2% → 3%
 
 FILES IN THIS ZIP (1 file):
-  app/globals.css       - just CSS
+  app/globals.css       - CSS only
 
 Instructions in chat with Claude.
