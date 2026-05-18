@@ -8,7 +8,7 @@ import "./globals.css";
  *   - SEO (Google, Bing) - title, description, robots, canonical
  *   - PWA manifest (installable app)
  *   - iOS-specific home-screen + status bar
- *   - Open Graph (Facebook, LinkedIn share previews)
+ *   - Open Graph (Facebook, LinkedIn, iMessage share previews)
  *   - Twitter Card (Twitter share previews)
  *   - Theme color matching cream brand
  */
@@ -74,7 +74,7 @@ export const metadata: Metadata = {
   },
 
   openGraph: {
-    title: "Daily Bread Project — Support Mafutseni Care Point",
+    title: "Daily Bread Project",
     description:
       "Help support the Mafutseni Care Point in Eswatini through daily micro-giving. $1, $2, or $3 a day provides food, shelter, supplies, and care.",
     url: "https://dailybreadproject.org",
@@ -93,7 +93,7 @@ export const metadata: Metadata = {
 
   twitter: {
     card: "summary_large_image",
-    title: "Daily Bread Project — Support Mafutseni Care Point",
+    title: "Daily Bread Project",
     description:
       "Help support the Mafutseni Care Point in Eswatini through daily micro-giving.",
     images: ["/og-image.png"],
