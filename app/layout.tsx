@@ -81,10 +81,10 @@ export const metadata: Metadata = {
     siteName: "Daily Bread Project",
     images: [
       {
-        url: "/app-icon-512.png",
-        width: 512,
-        height: 512,
-        alt: "Daily Bread Project · Mafutseni",
+        url: "/og-image.png",
+        width: 1200,
+        height: 630,
+        alt: "Daily Bread Project · Mafutseni Care Point in Eswatini",
       },
     ],
     locale: "en_US",
@@ -96,7 +96,7 @@ export const metadata: Metadata = {
     title: "Daily Bread Project — Support Mafutseni Care Point",
     description:
       "Help support the Mafutseni Care Point in Eswatini through daily micro-giving.",
-    images: ["/app-icon-512.png"],
+    images: ["/og-image.png"],
   },
 };
 
